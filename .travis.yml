@@ -32,8 +32,5 @@ script:
   - cd ..
   - sonar-scanner
 
-after_script:
-  - ./sonar-runner-2.4/bin/sonar-runner
-
 notifications:
     slack: geelo:9B7fJH0r7NfGbGOlCMUcFtwx
