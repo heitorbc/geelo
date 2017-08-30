@@ -2,6 +2,13 @@ language: python
 
 python:
   - "3.4"
+addons:
+    sonarqube:
+        organization: "LES20171"
+        token:
+            secure: 05b313e1bc59367e540ee93511fc58fd500a677e
+
+
 
 before_install:
   - wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip
@@ -14,12 +21,19 @@ branches:
 install:
   - pip install -r requirements.txt
 
+
+before_script:
+  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
 script:
-  - nosetests
+  - cd wsgi/myproject
+  - python manage.py behave
+  - cd ..
+  - cd ..
+  - sonar-scanner
 
 after_script:
   - ./sonar-runner-2.4/bin/sonar-runner
-
 
 notifications:
     slack: geelo:9B7fJH0r7NfGbGOlCMUcFtwx
