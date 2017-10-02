@@ -16,8 +16,3 @@ script: nosetests
 notifications:
     slack: geelo:9B7fJH0r7NfGbGOlCMUcFtwx
 
-deploy:
-  provider: heroku
-  app: geelo
-  on:
-    repo: heitorbc/geelo
