@@ -11,8 +11,7 @@ branches:
 install:
   - pip install -r requirements.txt
 
-script:
-  - bundle exec rake build
+script: nosetests
 
 notifications:
     slack: geelo:9B7fJH0r7NfGbGOlCMUcFtwx
