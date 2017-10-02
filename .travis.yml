@@ -1,10 +1,8 @@
+dist: trusty
+sudo: false
 language: python
-
 python:
   - "3.4"
-
-jdk:
-- oraclejdk8
 
 branches:
   only: 
@@ -13,10 +11,6 @@ branches:
 install:
   - pip install -r requirements.txt
 
-script:
-  - sonar-scanner
-before_script:
-  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 notifications:
     slack: geelo:9B7fJH0r7NfGbGOlCMUcFtwx
