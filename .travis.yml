@@ -13,6 +13,11 @@ install:
 
 script: nosetests
 
+deploy:
+ provider: heroku
+ api-key: 
+  secure: $HEROKU_API_KEY
+
 notifications:
     slack: geelo:9B7fJH0r7NfGbGOlCMUcFtwx
 
