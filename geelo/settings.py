@@ -26,6 +26,8 @@ SECRET_KEY = '#s4(nuf!%(vp2sfyps6+)ie22l5y=+9gupf#4betc-jn&tetr='
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
+    'geelo.herokuapp.com',
     'geelo-heitorbc.c9users.io',
     ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
