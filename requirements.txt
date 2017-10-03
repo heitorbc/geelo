@@ -8,3 +8,8 @@ parse-type==0.3.4
 python-dateutil==2.5.3
 selenium==2.53.6
 six==1.10.0
+whitenoise==3.3.0
+pytz==2017.2
+psycopg2==2.7.1
+dj-database-url==0.4.2
+gunicorn==19.7.1
