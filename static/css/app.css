@@ -2,7 +2,7 @@
     background-image: url('/static/img/bg_main.jpg');
     background-repeat: no-repeat;
     background-size:100%;
-    background-color:#800000;
+    background-color:#dcedc8;
 }
 
 .backgroundColorBase{
@@ -40,13 +40,13 @@ footer{
 /*Cores dos inputs e labels do materialize*/
 /* label color */
 .input-field label {
- color: #00e699;
+ color: #00E676;
 }
 
 /* valid color */
 .input-field input[type=text].valid, input[type=password].valid{
- border-bottom: 1px solid #00e699;
- box-shadow: 0 1px 0 0 #00e699;
+ border-bottom: 1px solid #00E676;
+ box-shadow: 0 1px 0 0 #00E676;
  
 }
 
@@ -54,22 +54,22 @@ footer{
 
 /* icon prefix focus color */
 .input-field .prefix.active {
- color: #00e699;
+ color: #00E676;
 }
 
 /* label underline focus color */
 .input-field (input[type=text]:focus) {
- border-bottom: 1px solid #00e699;
- box-shadow: 0 1px 0 0 #00e699;
+ border-bottom: 1px solid #00E676;
+ box-shadow: 0 1px 0 0 #00E676;
 }
 
 
 #id_username_fld{
-    color: #00e699;
+    color: #00E676;
 }
 
 #icone-login{
-    color: #00e699;
+    color: #00E676;
 }
 
 #div-login{
@@ -81,18 +81,18 @@ footer{
 
 /* label focus color */
 .input-field input[type=text]:focus + label, input[type=password]:focus + label {
- color: #00e699;
+ color: #00E676;
 }
 
 /* invalid color */
 .input-field input[type=text].invalid, input[type=password].invalid {
- border-bottom: 1px solid #00e699;
- box-shadow: 0 1px 0 0 #00e699;
+ border-bottom: 1px solid #00E676;
+ box-shadow: 0 1px 0 0 #00E676;
 }
 
 /* icon prefix focus color */
 .input-field .prefix.active {
- color: #00e699;
+ color: #00E676;
  
 }
 
@@ -131,13 +131,13 @@ footer{
 
 .form label{
     font-weight: 400;
-    color: #37474f !important;
+    color: #00e676 !important;
     font-size:16px;
 }
 
 
 #tabelaFormulario ol li{
-    color:#f44336;
+    color:#00e676;
 }
 
 .titulo{
