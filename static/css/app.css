@@ -1,0 +1,265 @@
+.backgroundColorLogin{
+    background-image: url('/static/img/bg_main.jpg');
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-color:#800000;
+}
+
+.backgroundColorBase{
+     background-color:#e0e0e0;
+}
+
+.selectField{
+    background-color:#b0bec5;
+    border:0px;
+}
+
+.titulo-app{
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.lgn-container{
+    margin-top: 10px;
+}
+
+footer{
+    /*border: 2px solid red ;*/
+	background: #000;
+    margin: 200px 0px 0px 0px;
+	padding: 50px 0px 20px 0px;
+	position: relative;
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/*Cores dos inputs e labels do materialize*/
+/* label color */
+.input-field label {
+ color: #00e699;
+}
+
+/* valid color */
+.input-field input[type=text].valid, input[type=password].valid{
+ border-bottom: 1px solid #00e699;
+ box-shadow: 0 1px 0 0 #00e699;
+ 
+}
+
+
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+ color: #00e699;
+}
+
+/* label underline focus color */
+.input-field (input[type=text]:focus) {
+ border-bottom: 1px solid #00e699;
+ box-shadow: 0 1px 0 0 #00e699;
+}
+
+
+#id_username_fld{
+    color: #00e699;
+}
+
+#icone-login{
+    color: #00e699;
+}
+
+#div-login{
+    border-radius: 30px;
+    -moz-border-radius: 8px; /* Para Firefox */
+    -webkit-border-radius: 8px; /*Para Safari e Chrome */
+}
+
+
+/* label focus color */
+.input-field input[type=text]:focus + label, input[type=password]:focus + label {
+ color: #00e699;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid, input[type=password].invalid {
+ border-bottom: 1px solid #00e699;
+ box-shadow: 0 1px 0 0 #00e699;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+ color: #00e699;
+ 
+}
+
+#botao_enviar{
+    margin-left: 10px;
+}
+/*login.html*/
+#form-login{
+    margin-top:10%;
+    box-sizing:border-box;
+}
+
+#form-login label{
+    font-weight: 400;
+    color: #37474f !important;
+    font-size:16px;
+}
+
+#tabela-opcoes{
+     width: 100%;
+}
+.cadastrar{
+    position:fixed;
+    left:82%;
+    top:82%;
+}
+
+/*home.html*/
+#home{
+    margin-top:25%;
+}
+
+.card-color:hover{
+    background-color:#78909c !important;
+}
+
+.form label{
+    font-weight: 400;
+    color: #37474f !important;
+    font-size:16px;
+}
+
+
+#tabelaFormulario ol li{
+    color:#f44336;
+}
+
+.titulo{
+    color: #000000;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.subtitulo{
+    color: #37474f;
+    margin-top:15px;
+}
+.subtitulo2{
+    color: #37474f;
+    margin-top:20px;
+    position:relative;
+    top: 30px;
+}
+
+.escolhido{
+    margin-bottom:15px;
+}
+
+#botao_voltar{
+    margin-bottom:30px;
+}
+
+.adicionar{
+    margin-top:5px;
+}
+
+.hidden{
+  display: none;
+}
+.imagemlogo{
+    position:absolute;
+    left:6%;
+    top:80%;
+    margin-left:-70px;
+    margin-top:-40px;
+}
+.imagem{
+    position:absolute;
+    left:9%;
+    top:60%;
+    margin-left:-70px;
+    margin-top:-40px;3
+}
+
+
+.sub-titulo{
+    text-align: center;
+}
+
+.efeito li:hover{
+    background-color: #a5d6a7 !important;
+}
+
+.efeito li>span{
+    color:black !important;
+}
+.bordaredonda{
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+}
+
+
+.container{
+    width:70% !important;
+    padding-bottom:1px !important;
+    margin-bottom: 30px !important;
+}
+.div1
+{
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color:black;
+    text-align: center;
+    padding-left: auto;
+    
+}
+.div2{
+    background-color: #c8e6c9;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+.slogan{
+    position:absolute;
+    left:9%;
+    top:90%;
+    margin-left:-70px;
+    margin-top:-40px;3
+    font-family: "Times New Roman";
+    font-style: italic;
+}
+
+.conteiner-botao{
+    width: 100%;
+    text-align: center;
+}
+
+.erro{
+    width: 100%;
+}
+
+.erro2{
+    margin-top: 20px;
+
+}
+.errorlist li:hover{
+    background-color: #ffffff !important
+}
+.errorlist li{
+    color: red !important
+}
+
+.erro{
+    color: red;
+}
+
+#bloco-perfil{
+    margin-left: 170px;
+}
