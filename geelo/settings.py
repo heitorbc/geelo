@@ -31,8 +31,8 @@ ALLOWED_HOSTS = [
     'localhost',
     'geelo.herokuapp.com',
     'geelo-heitorbc.c9users.io',
-    ]
-    
+]
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'gunicorn',
     #'psycopg2',
     'app',
-    
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -147,9 +147,3 @@ STATICFILES_DIRS = (
 LOGIN_URL = 'login'
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-
-
-
-
-
