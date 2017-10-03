@@ -11,7 +11,7 @@ install:
 script: nosetests
 deploy:
   provider: heroku
-  api-key:
+  api_key:
     secure: e3ePyAq9eEd5MswsDPf8FdKqACmznvyM7lsGwzk+S7x+0upLCfgH4zpJ3stily5hLXnoPwD4ThKNHy1SKkYnRKJ/5cJ6Sexg/9ZfYIT9FFzmdQWFj/DkReCZWpNVrh3zDdjTeGVBg7aOtsL9vMz5yE3awa+qTMTJ41b/RyE5kwCm0khcqcZPiouo7Ygs5IakZ4eYt+fxYHuGM4QV7jjD4YLXVnVodgNwQqkfsYWaC9HyUkNcqkMa19KBRmqRB9NxJHqlkjd9N7OpeWC/t8tv11HfL0ry/UroWBNNjkTdEgS1cgwkvVqsT0QmdJmuaCf8SNpyynPw4N8Ey7sh2fJccc2/DtXoZZEDia1gLwtrK+/8RfFZX/ZX6ObYJXVXXYJVApzeiSY5sHMrGQSnUb0TX1O1huUGHrrpfgXm+tCwNH2wuUQlk4Tqb1z9t6aGml/tdr5PG6/RR1D0zp/CzGDp5/g9PjkhHtYlC1j30F9KxfNGlrLdv93OkVT9EvmBI4lwgJOQ0ncj+MM1u5UkKD8ONLC4ePgJ8u+mrtooD+y7fdhxyzYTwyAWJlC1WXQM1Sz0lVnTb+UtJkSSVw13xDZgkVju5/9tbMqoF1ktz8XMiAIbmB+A2OFBgaFnmWOHj0XJ9WRdM3DxdK4TFKGqTGSjzcLWFA9DmSOiniHOsBFgf4U=
   app: geelo
   on:
