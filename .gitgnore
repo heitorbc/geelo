@@ -1,0 +1,9 @@
+#Virtualenv
+env/
+
+#BD local
+db.sqlite3
+
+
+#sh cloud9
+start.sh
