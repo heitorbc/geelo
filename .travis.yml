@@ -16,7 +16,7 @@ addons:
             secure: "$SONAR_TOKEN"
 
 script:
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN
+  - sonar-scanner
   
 deploy:
   provider: heroku
