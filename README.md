@@ -1,3 +1,6 @@
+# Geelo [![Build Status](https://travis-ci.org/heitorbc/geelo.svg?branch=master)]
+
+## Gestão Eletrônica de Loterias
 
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
