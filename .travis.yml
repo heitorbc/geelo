@@ -16,7 +16,7 @@ addons:
             secure:
 
 script:
-  - cd wsgi/myproject
+  - cd wsgi/geelo
   - python manage.py behave
   - cd ..
   - cd ..
