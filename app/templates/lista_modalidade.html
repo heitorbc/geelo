@@ -1,42 +1,75 @@
-{% extends 'base.html' %}
-{% block title %}Modalidades{% endblock %}
+{% extends "base_site.html" %}
+
+{% block title %} Modalidades {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
 
 {% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Lista Modalidades </h3>
+        </div>
 
-    <div id="content-container" class="container p-none home-margin">
-        <div class="lgn-container col-lg-8">
+        
+      </div>
 
-            <a id="menu" style="margin-top: 30px; margin-right: 0px !important; " href="{% url 'cadastro_modalidade' %}" class="btn-floating btn-large green right green">
-                <i class="large material-icons ">add</i>
-            </a>
+      <div class="clearfix"></div>
 
-            <h4 class="titulo"><br/>Modalidades</h4>
-            <br/>
-            <table>
-                    <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>Descricao</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+      <div class="row">
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            
+            <div class="x_content">
+                
+               <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
+                  <a  name="visualizar" href="{% url 'cadastro_modalidade' %}"><i class="fa fa-plus-circle"></i> Novo</a>
+                </button>
+
+
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Descricão</th>
+                    <th>Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
                         {% for modalidade in modalidades|dictsort:"descricao" %}
                         <tr>
                             <td id="id">{{modalidade.id}}</td>
                             <td id="descricao">{{modalidade.descricao}}</td>
-                            <td>
-                                    <a name="editar" class="btn-floating waves-effect waves-light green" href="#">
-                                    <i class="material-icons">mode_edit</i></a>
-                                    
-                                    <a  name="visualizar" class="btn-floating waves-effect waves-light green" href="#">
-                                        <i class="material-icons">visibility</i></a>
-                                    
+                            <td>    
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Visualizar"><i class="fa fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button" data-placement="right" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-trash"></i></button>
+                                </div>
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
-            </table>
+              </table>
+
+            </div>
+          </div>
         </div>
+
+       
+        
+      </div>
     </div>
+  </div>
 {% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+
+
+

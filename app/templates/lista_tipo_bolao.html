@@ -1,47 +1,81 @@
-{% extends 'base.html' %}
-{% block title %}Tipo Bolão{% endblock %}
+{% extends "base_site.html" %}
+
+{% block title %} Modalidades {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
 
 {% block content %}
-<div class="home-margin">
-    <div id="content-container" class="container p-none">
-        <div class="lgn-container col-lg-8">
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Lista Tipo Bolão </h3>
+        </div>
 
-            <a id="menu" style="margin-top: 30px; margin-right: 0px !important; " href="{% url 'cadastro_tipo_bolao' %}" class="btn-floating btn-large green right green">
-                <i class="large material-icons ">add</i>
-            </a>
+        
+      </div>
 
-            <h4 class="titulo"><br/>Tipo Bolão</h4>
-            <br/>
-            <table>
-                    <thead>
+      <div class="clearfix"></div>
+
+      <div class="row">
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            
+            <div class="x_content">
+                
+               <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
+                  <a  name="visualizar" href="{% url 'cadastro_tipo_bolao' %}"><i class="fa fa-plus-circle"></i> Novo</a>
+                </button>
+
+
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Código</th>
+                    <th>Modalidade</th>
+                    <th>Cotas</th>
+                    <th>Valor Total</th>
+                    <th>Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+                         {% for tipoBolao in tipoboloes|dictsort:"codigo" %}
                         <tr>
-                            <th>Código</th>
-                            <th>Modalidade</th>
-                            <th>Cotas</th>
-                            <th>Valor Total</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for tipoBolao in tipoboloes|dictsort:"codigo" %}
-                        <tr>
+                            <td id="id">{{tipoBolao.id}}</td>
                             <td id="codigo">{{tipoBolao.codigo}}</td>
                             <td id="modalidade">{{tipoBolao.modalidade.descricao}}</td>
                             <td id="cotas">{{tipoBolao.cotas}}</td>
                             <td id="valortotal">R$ {{tipoBolao.valorTotal}}</td>
                             <td>
-                                    <a name="editar" class="btn-floating waves-effect waves-light green" href="#">
-                                    <i class="material-icons">mode_edit</i></a>
-                                    
-                                    <a  name="visualizar" class="btn-floating waves-effect waves-light green" href="#">
-                                        <i class="material-icons">visibility</i></a>
-                                    
+                               <div class="btn-group">
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Visualizar"><i class="fa fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button" data-placement="right" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-trash"></i></button>
+                                </div>
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
-            </table>
+              </table>
+
+            </div>
+          </div>
         </div>
+
+       
+        
+      </div>
     </div>
- </div>
+  </div>
 {% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+
+
+

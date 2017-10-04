@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Modalidade{% endblock %}
+
+{% block content %}
+<div class="home-margin">
+    <div id="content-container" class="container p-none">
+        <div class="lgn-container col-lg-8">
+            <h4 class="titulo"><br/>Cadastro de Modalidade</h4>
+            <br/>
+            <form id="modalidade-form" method="post"
+                  action="{% url 'cadastro_modalidade' %}">
+                {% csrf_token %}
+                <br/>
+                <div class="form">
+                    {{form_modalidade.as_p}}
+                </div>
+
+                <br/><br/>
+                <div class="row">
+                    <div class="input-field">
+                        <button class="btn right green" type="submit" name="submit">Cadastrar</button>
+                        <input type="hidden" name="next" value="/lista_modalidade" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
