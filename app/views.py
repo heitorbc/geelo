@@ -62,3 +62,30 @@ def cadastro_modalidade(request):
 def lista_modalidade(request):
     modalidades = Modalidade.objects.all()
     return render(request, 'lista_modalidade.html', {'modalidades': modalidades})
+
+
+@csrf_protect
+@login_required
+def cadastro_tipo_bolao(request):
+    if request.method == 'POST':
+        form_tipo_bolao = Form_TipoBolao(request.POST)
+        if form_tipo_bolao.is_valid():
+            codigo = form_tipo_bolao.cleaned_data['codigo']
+            modalidade = form_tipo_bolao.cleaned_data['modalidade']
+            cotas = form_tipo_bolao.cleaned_data['cotas']
+            valorBolao = form_tipo_bolao.cleaned_data['valorBolao']
+            valorTaxa = form_tipo_bolao.cleaned_data['valorTaxa']
+            form_tipo_bolao.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+        
+    else:
+        form_tipo_bolao = Form_TipoBolao()
+            
+    return render(request, 'cadastro_tipo_bolao.html', { 'form_tipo_bolao': form_tipo_bolao} )
+    
+    
+@csrf_protect
+@login_required
+def lista_tipo_bolao(request):
+    tipoboloes = TipoBolao.objects.all()
+    return render(request, 'lista_tipo_bolao.html', {'tipoboloes': tipoboloes})

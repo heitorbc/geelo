@@ -34,14 +34,14 @@
 
             <br/><br/>
             <div class="conteiner-botao">
-                <button id="botao-login" class="btn green accent-3 z-depth-1" type="submit" name="action">Login</button>
+                <button id="botao-login" class="btn green z-depth-1" type="submit" name="action">Login</button>
                  {% if not request.GET.next %}
                     <input type="hidden" name="next" value="/home">
                 {%else%}
                     <input type="hidden" name="next" value="{{request.GET.next}}">
                 {%endif%}
                 <ul class="center">
-                      <li></br><a class="green-text text-accent-2" href="">Esqueceu a senha?</a></li>
+                      <li></br><a class="green-text text-accent-1" href="">Esqueceu a senha?</a></li>
                 </ul>
 
             </div>

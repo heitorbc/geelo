@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Tipo Bolão{% endblock %}
+
+{% block content %}
+<div class="home-margin">
+    <div id="content-container" class="container p-none">
+        <div class="lgn-container col-lg-8">
+
+            <a id="menu" style="margin-top: 30px; margin-right: 0px !important; " href="{% url 'cadastro_tipo_bolao' %}" class="btn-floating btn-large green right green">
+                <i class="large material-icons ">add</i>
+            </a>
+
+            <h4 class="titulo"><br/>Tipo Bolão</h4>
+            <br/>
+            <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Modalidade</th>
+                            <th>Cotas</th>
+                            <th>Valor Total</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tipoBolao in tipoboloes|dictsort:"codigo" %}
+                        <tr>
+                            <td id="codigo">{{tipoBolao.codigo}}</td>
+                            <td id="modalidade">{{tipoBolao.modalidade.descricao}}</td>
+                            <td id="cotas">{{tipoBolao.cotas}}</td>
+                            <td id="valortotal">R$ {{tipoBolao.valorTotal}}</td>
+                            <td>
+                                    <a name="editar" class="btn-floating waves-effect waves-light green" href="#">
+                                    <i class="material-icons">mode_edit</i></a>
+                                    
+                                    <a  name="visualizar" class="btn-floating waves-effect waves-light green" href="#">
+                                        <i class="material-icons">visibility</i></a>
+                                    
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+    </div>
+ </div>
+{% endblock content %}

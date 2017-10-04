@@ -1,0 +1,115 @@
+{% extends "base_site.html" %}
+
+{% block title %} Login {% endblock title %}
+
+
+{% block body_class %}login{% endblock body_class %}
+
+{% block body %}
+{% if not user.is_authenticated %}
+  <div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+   
+    <div class="login_wrapper">
+      <div class="animate form login_form">
+        <section class="login_content">
+          <form id="login-form" method="post"
+              action="{% url 'login2' %}">
+            {% csrf_token %}
+            
+            <h1>Geelo</h1>
+             {% if form.errors %}
+    <div class="row" style="margin:0px;">
+        <div class="col s12 ">
+            <p class="center-align card-panel grey">
+                Usuário ou senha incorretos.
+                Tente novamente.
+            </p>
+         </div>
+     </div>
+    {% endif %}
+            <div>
+              <input id="id_username" name="username" type="text" class="validate">
+            </div>
+            <div>
+              <input id="id_password" id="id_username_fld" name="password"type="password" class="validate">
+            </div>
+            <div>
+              <button id="botao-login" class="btn btn-default submit" type="submit" name="action">Entrar</button>
+              {% if not request.GET.next %}
+                    <input type="hidden" name="next" value="/home">
+                {%else%}
+                    <input type="hidden" name="next" value="{{request.GET.next}}">
+                {%endif%}
+              <a class="reset_pass" href="#">Esqueci minha senha</a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="separator">
+              <p class="change_link">Novo por aqui?
+                <a href="#signup" class="to_register"> Cadastre-se </a>
+              </p>
+
+              <div class="clearfix"></div>
+              <br />
+
+              <div>
+                <h1><i class="fa fa-bar-chart "></i> Geelo</h1>
+                <p>©2017 All Rights Reserved. Gestão Eletrônica de Loterias</p>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <div id="register" class="animate form registration_form">
+        <section class="login_content">
+          <form>
+            <h1>Criar uma conta</h1>
+            <div>
+              <input type="text" class="form-control" placeholder="Username" required="" />
+            </div>
+            <div>
+              <input type="email" class="form-control" placeholder="Email" required="" />
+            </div>
+            <div>
+              <input type="password" class="form-control" placeholder="Password" required="" />
+            </div>
+            <div>
+              <a class="btn btn-default submit" href="index.html">Submit</a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="separator">
+              <p class="change_link">Already a member ?
+                <a href="#signin" class="to_register"> Log in </a>
+              </p>
+
+              <div class="clearfix"></div>
+              <br />
+
+              <div>
+                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% if user.is_authenticated %}
+
+<h3> Usuário já esta logado...</h3>
+        <div class="text-center alert alert-warning">
+                        <a href="/home" class="btn">
+                            <i class="fa fa-magnet"></i>&nbsp; Va para HOME</a>
+                        
+                    </div>
+    {% endif %}
+
+{% endblock body %}

@@ -26,4 +26,9 @@ class Form_Modalidade(forms.ModelForm):
         model = Modalidade
         fields = '__all__'
         
-        
+
+class Form_TipoBolao(forms.ModelForm):
+    
+    class Meta:
+        model = TipoBolao
+        fields = '__all__'

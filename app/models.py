@@ -117,6 +117,10 @@ class TipoBolao(models.Model):
     class Meta:
         verbose_name = ('Tipo Bolão')
         verbose_name_plural = ('Tipo Bolões')
+    
+    #ToString
+    def valorTotal(self):
+        return self.valorBolao + self.valorTaxa
         
     #ToString
     def __str__(self):

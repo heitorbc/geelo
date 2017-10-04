@@ -16,4 +16,5 @@ from whitenoise.django import DjangoWhiteNoise
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geelo.settings")
 
 application = get_wsgi_application()
+##comentar/descomentar
 application = DjangoWhiteNoise(application)

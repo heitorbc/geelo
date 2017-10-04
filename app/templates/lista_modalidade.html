@@ -3,10 +3,10 @@
 
 {% block content %}
 
-    <div id="content-container" class="container p-none">
+    <div id="content-container" class="container p-none home-margin">
         <div class="lgn-container col-lg-8">
 
-            <a id="menu" style="margin-top: 30px; margin-right: 0px !important; " href="{% url 'cadastro_modalidade' %}" class="btn-floating btn-large red right red">
+            <a id="menu" style="margin-top: 30px; margin-right: 0px !important; " href="{% url 'cadastro_modalidade' %}" class="btn-floating btn-large green right green">
                 <i class="large material-icons ">add</i>
             </a>
 
@@ -26,10 +26,10 @@
                             <td id="id">{{modalidade.id}}</td>
                             <td id="descricao">{{modalidade.descricao}}</td>
                             <td>
-                                    <a name="editar" class="btn-floating waves-effect waves-light red" href="#">
+                                    <a name="editar" class="btn-floating waves-effect waves-light green" href="#">
                                     <i class="material-icons">mode_edit</i></a>
                                     
-                                    <a  name="visualizar" class="btn-floating waves-effect waves-light red" href="#">
+                                    <a  name="visualizar" class="btn-floating waves-effect waves-light green" href="#">
                                         <i class="material-icons">visibility</i></a>
                                     
                             </td>
