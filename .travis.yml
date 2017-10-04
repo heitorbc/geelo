@@ -16,7 +16,7 @@ branches:
 install:
 - pip install -r requirements.txt
 script:
-  - sonar-scanner
+  - sonar-scanner -Dsonar.login=$SONAR_TOKEN
 deploy:
   provider: heroku
   api_key:
