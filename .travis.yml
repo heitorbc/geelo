@@ -13,7 +13,7 @@ addons:
     sonarqube:
         organization: "LES-GEELO"
         token:
-            secure:
+            secure: 6f3ff8e02fa08713b2f83e5003bcc97bfee93fe0
 
 script:
   - cd wsgi/geelo
