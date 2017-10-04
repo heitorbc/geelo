@@ -11,16 +11,12 @@ install:
 
 addons:
     sonarqube:
-        organization: "LES-GEELO"
+        organization: "heitorbc"
         token:
-            secure: 6f3ff8e02fa08713b2f83e5003bcc97bfee93fe0
+            secure: "$SONAR_TOKEN"
 
 script:
-  - cd wsgi/geelo
-  - python manage.py behave
-  - cd ..
-  - cd ..
-  - sonar-scanner
+  - sonar-scanner -Dsonar.login=$SONAR_TOKEN
   
 deploy:
   provider: heroku
