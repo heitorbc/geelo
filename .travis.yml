@@ -8,7 +8,20 @@ branches:
   - master
 install:
 - pip install -r requirements.txt
-script: nosetests
+
+addons:
+    sonarqube:
+        organization: "LES-GEELO"
+        token:
+            secure:
+
+script:
+  - cd wsgi/myproject
+  - python manage.py behave
+  - cd ..
+  - cd ..
+  - sonar-scanner
+  
 deploy:
   provider: heroku
   api_key:
