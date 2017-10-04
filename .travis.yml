@@ -31,3 +31,12 @@ deploy:
     repo: heitorbc/geelo
 notifications:
   slack: geelo:9B7fJH0r7NfGbGOlCMUcFtwx
+
+jdk:
+  - oraclejdk8
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer 
+before_script:
+  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
