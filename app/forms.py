@@ -7,6 +7,7 @@ from .models import *
 from datetime import date
 import datetime
 from django.forms import ModelMultipleChoiceField, ModelChoiceField
+from django.contrib.admin import widgets 
 
 
 class Form_User(forms.ModelForm):
@@ -20,6 +21,7 @@ class Form_User(forms.ModelForm):
             'password': ('Senha:'),
         }
 
+
 class Form_Modalidade(forms.ModelForm):
     
     class Meta:
@@ -31,4 +33,19 @@ class Form_TipoBolao(forms.ModelForm):
     
     class Meta:
         model = TipoBolao
+        fields = '__all__'
+
+
+class Form_Produto(forms.ModelForm):
+    
+    
+    class Meta:
+        model = Produto
+        fields = '__all__'
+        
+        
+class Form_Guiche(forms.ModelForm):
+    
+    class Meta:
+        model = Guiche
         fields = '__all__'

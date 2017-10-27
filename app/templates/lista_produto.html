@@ -1,0 +1,81 @@
+{% extends "base_site.html" %}
+
+{% block title %} Produtos {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Lista de Produtos </h3>
+        </div>
+
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            
+            <div class="x_content">
+                
+               <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
+                  <a  name="cadastrar_produto" href="{% url 'cadastro_produto' %}"><i class="fa fa-plus-circle"></i> Novo</a>
+                </button>
+
+
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Descrição</th>
+                    <th>Modalidade</th>
+                    <th>Quantidade Disponível</th>
+                    <th>Valor Total</th>
+                    <th>Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+                         {% for produto in produtos|dictsort:"id" %}
+                        <tr>
+                            <td id="id">{{produto.id}}</td>
+                            <td id="descricao">{{produto.modalidade.descricao}}</td>
+                            <td id="modalidade">{{produto.modalidade.descricao}}</td>
+                            <td id="quantidadeDisponivel">{{produto.quantidadeDisponivel}}</td>
+                            <td id="valortotal">R$ {{produto.valorTotal}}</td>
+                            <td>
+                               <div class="btn-group">
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Visualizar"><i class="fa fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button" data-placement="right" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+
+       
+        
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+
+
+

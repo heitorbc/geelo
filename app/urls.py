@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """geelo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -21,8 +22,14 @@ from app.views import *
 urlpatterns = [
     url(r'^home/$', relatorio_home, name='home'),
     url(r'^$', relatorio_home, name='home'),
+    url(r'^cadastro_funcionario/$', cadastro_funcionario, name='cadastro_funcionario'),
     url(r'^cadastro_modalidade/$', cadastro_modalidade, name='cadastro_modalidade'),
     url(r'^cadastro_tipo_bolao/$', cadastro_tipo_bolao, name='cadastro_tipo_bolao'),
+    url(r'^cadastro_produto/$', cadastro_produto, name='cadastro_produto'),
+    url(r'^cadastro_guiche/$', cadastro_guiche, name='cadastro_guiche'),
+    url(r'^lista_funcionario/$', lista_funcionario, name='lista_funcionario'),
     url(r'^lista_modalidade/$', lista_modalidade, name='lista_modalidade'),
     url(r'^lista_tipo_bolao/$', lista_tipo_bolao, name='lista_tipo_bolao'),
+    url(r'^lista_produto/$', lista_produto, name='lista_produto'),
+    url(r'^lista_guiche/$', lista_guiche, name='lista_guiche'),
 ]

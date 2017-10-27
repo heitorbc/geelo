@@ -8,15 +8,24 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.shortcuts import render
+from django.views.generic.edit import FormView
+from datetime import datetime 
 
 
 @csrf_protect
 @login_required
+
 def relatorio_home(request):
     
     return render(request, 'home.html')
     
     
+    
+
+
+##### Views de Cadastros
+
+
 def cadastro_funcionario(request):
     if request.method == 'POST':
         form_user = Form_User(request.POST)
@@ -30,15 +39,15 @@ def cadastro_funcionario(request):
             user.last_name=sobrenome
             user.first_name=nome
             user.save()
-            tipo_funcionario = TipoFuncionario.objects.get(descricao='Vendedor')
-            Funcionario.objects.create(user=user, tipo_funcionario=tipo_funcionario)
+            tipoFuncionario = TipoFuncionario.objects.get(descricao='Vendedor')
+            Funcionario.objects.create(user=user, tipoFuncionario=tipoFuncionario, nome=nome, sobrenome=sobrenome, dataContratacao=datetime.now(),salario=0)
             return HttpResponseRedirect(request.POST.get('next'))
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form_user = Form_User()
 
-    return render(request, 'cadastro_usuario.html', { 'form_user': form_user} )
+    return render(request, 'cadastro_funcionario.html', { 'form_user': form_user} )
     
     
 @csrf_protect
@@ -55,13 +64,7 @@ def cadastro_modalidade(request):
         form_modalidade = Form_Modalidade()
             
     return render(request, 'cadastro_modalidade.html', { 'form_modalidade': form_modalidade} )
-    
-    
-@csrf_protect
-@login_required
-def lista_modalidade(request):
-    modalidades = Modalidade.objects.all()
-    return render(request, 'lista_modalidade.html', {'modalidades': modalidades})
+
 
 
 @csrf_protect
@@ -82,10 +85,84 @@ def cadastro_tipo_bolao(request):
         form_tipo_bolao = Form_TipoBolao()
             
     return render(request, 'cadastro_tipo_bolao.html', { 'form_tipo_bolao': form_tipo_bolao} )
+
+
+@csrf_protect
+@login_required
+def cadastro_produto(request):
+    if request.method == 'POST':
+        form_produto = Form_Produto(request.POST)
+        if form_produto.is_valid():
+            descricao = form_produto.cleaned_data['descricao']
+            valorProduto = form_produto.cleaned_data['valorProduto']
+            valorComissao = form_produto.cleaned_data['valorComissao']
+            modalidade = form_produto.cleaned_data['modalidade']
+            quantidadeDisponivel = form_produto.cleaned_data['quantidadeDisponivel']
+            
+            form_produto.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+        
+    else:
+        form_produto = Form_Produto()
+            
+    return render(request, 'cadastro_produto.html', { 'form_produto': form_produto} )
+
+
+@csrf_protect
+@login_required
+def cadastro_guiche(request):
+    if request.method == 'POST':
+        form_guiche = Form_Guiche(request.POST)
+        if form_guiche.is_valid():
+            numero = form_guiche.cleaned_data['numero']
+            descricao = form_guiche.cleaned_data['descricao']
+            codigoCEF = form_guiche.cleaned_data['codigoCEF']
+            form_guiche.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+        
+    else:
+        form_guiche = Form_Guiche()
+            
+    return render(request, 'cadastro_guiche.html', { 'form_guiche': form_guiche} )
+
+
+
+
+
+##### Listagem de Modelos
     
     
+@csrf_protect
+@login_required
+def lista_funcionario(request):
+    funcionarios = Funcionario.objects.all()
+    return render(request, 'lista_funcionario.html', {'funcionarios': funcionarios})
+    
+    
+@csrf_protect
+@login_required
+def lista_modalidade(request):
+    modalidades = Modalidade.objects.all()
+    return render(request, 'lista_modalidade.html', {'modalidades': modalidades})
+
+
 @csrf_protect
 @login_required
 def lista_tipo_bolao(request):
     tipoboloes = TipoBolao.objects.all()
     return render(request, 'lista_tipo_bolao.html', {'tipoboloes': tipoboloes})
+
+
+@csrf_protect
+@login_required
+def lista_produto(request):
+    produtos = Produto.objects.all()
+    return render(request, 'lista_produto.html', {'produtos': produtos})
+
+
+    
+@csrf_protect
+@login_required
+def lista_guiche(request):
+    guiches = Guiche.objects.all()
+    return render(request, 'lista_guiche.html', {'guiches': guiches})

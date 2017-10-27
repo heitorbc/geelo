@@ -1,0 +1,78 @@
+{% extends "base_site.html" %}
+
+{% block title %} Funcionário {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Lista de Funcionários </h3>
+        </div>
+
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            
+            <div class="x_content">
+                
+               <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
+                  <a  name="cadastrar_funcionario" href="{% url 'cadastro_funcionario' %}"><i class="fa fa-plus-circle"></i> Novo</a>
+                </button>
+
+
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Acesso </th>
+                    <th>Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+                         {% for funcionario in funcionarios|dictsort:"id" %}
+                        <tr>
+                            
+                            <td id="id">{{funcionario.id}}</td>
+                            <td id="nome">{{funcionario.nome}}</td>
+                            <td id="tipoFuncionario">{{funcionario.tipoFuncionario.descricao}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Visualizar"><i class="fa fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button" data-placement="right" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+
+       
+        
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+
+
+

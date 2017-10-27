@@ -42,6 +42,10 @@ class Funcionario(models.Model):
     def demitir(self):
         self.dataDemissao = timezone.now()
         self.save()
+    
+    ##Como verificar perfil de usuario
+    def isProprietario(self):
+        return False
 
 
 class Guiche(models.Model):
@@ -102,8 +106,13 @@ class Produto(models.Model):
         verbose_name_plural = ('Produtos')
     
     #ToString
+    def valorTotal(self):
+        return self.valorProduto + self.valorComissao
+        
+    
+    #ToString
     def __str__(self):
-        return self.modalidade.descricao + ' - ' + self.dataSorteio
+        return self.modalidade.descricao + ' - ' + str(self.dataSorteio)
 
 class TipoBolao(models.Model):
     #Atributos
