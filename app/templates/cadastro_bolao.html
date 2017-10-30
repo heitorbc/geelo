@@ -1,12 +1,12 @@
 {% extends "base_site.html" %}
 
-{% block title %} Produto {% endblock title %}
+{% block title %} Bolão {% endblock title %}
 {% block content %}
   <div class="right_col" role="main">
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Cadastro de Produto</h3>
+          <h3>Cadastro de Bolão</h3>
         </div>
 
       </div>
@@ -24,23 +24,23 @@
             <div class="x_content">
               <br />
               
-              <form id="produto-form" method="post"
-                      action="{% url 'cadastro_produto' %}">
+              <form id="bolao-form" method="post"
+                      action="{% url 'cadastro_bolao' %}">
                     {% csrf_token %}
                     <br/>
                     <div class="form">
-                        {{form_produto.as_p}}
+                        {{form_bolao.as_p}}
                     </div>
     
                     <br/><br/>
                     <div class="row">
                         <div class="input-field">
                             <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
-                              <a  name="visualizar" href="{% url 'lista_produto' %}">Voltar</a>
+                              <a  name="visualizar" href="{% url 'lista_bolao' %}">Voltar</a>
                             </button>
                             <button class="btn btn-primary" type="reset">Limpar</button>
                             <button class="btn btn btn-success" type="submit" name="submit">Cadastrar</button>
-                            <input type="hidden" name="next" value="/lista_produto" />
+                            <input type="hidden" name="next" value="/lista_bolao" />
                         </div>
                     </div>
                 </form>

@@ -1,0 +1,52 @@
+{% extends "base_site.html" %}
+{% block title %} Modalidades {% endblock title %}
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Editar de Modalidade</h3>
+        </div>
+
+      </div>
+      
+      
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2><small>preencha os campos abaixo</small></h2>
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              
+              <form id="modalidade-form" method="post"
+                  action="{% url 'editar_modalidade' pk=modalidade.pk %}">
+                {% csrf_token %}
+                <br/>
+                <div class="form">
+                    {{form_modalidade.as_p}}
+                </div>
+
+                <br/><br/>
+                <div class="row">
+                    <div class="input-field">
+                        <button class="btn right red darken-4" type="submit" name="submit">Salvar</button>
+                        <input type="hidden" name="next" value="/lista_modalidade" />
+                    </div>
+                </div>
+            </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+    </div>
+  </div>
+{% endblock content %}

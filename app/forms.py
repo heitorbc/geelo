@@ -38,9 +38,15 @@ class Form_TipoBolao(forms.ModelForm):
 
 class Form_Produto(forms.ModelForm):
     
-    
     class Meta:
         model = Produto
+        fields = '__all__'
+        
+        
+class Form_Bolao(forms.ModelForm):
+    
+    class Meta:
+        model = Bolao
         fields = '__all__'
         
         
@@ -48,4 +54,11 @@ class Form_Guiche(forms.ModelForm):
     
     class Meta:
         model = Guiche
+        fields = '__all__'
+        
+
+class Form_TipoFuncionario(forms.ModelForm):
+    
+    class Meta:
+        model = TipoFuncionario
         fields = '__all__'

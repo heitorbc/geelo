@@ -1,6 +1,6 @@
 {% extends "base_site.html" %}
 
-{% block title %} Tipo Bolão {% endblock title %}
+{% block title %} Tipo Funcionário {% endblock title %}
 
 {% block stylesheets %}
   {{ block.super }}
@@ -11,7 +11,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Lista Tipo Bolão </h3>
+          <h3>Lista Tipo de Funcionários </h3>
         </div>
 
         
@@ -27,7 +27,7 @@
             <div class="x_content">
                 
                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
-                  <a  name="cadastrar_tipo_bolao" href="{% url 'cadastro_tipo_bolao' %}"><i class="fa fa-plus-circle"></i> Novo</a>
+                  <a  name="cadastrar_tipo_funcionario" href="{% url 'cadastro_tipo_funcionario' %}"><i class="fa fa-plus-circle"></i> Novo</a>
                 </button>
 
 
@@ -36,21 +36,15 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Código</th>
-                    <th>Modalidade</th>
-                    <th>Cotas</th>
-                    <th>Valor Total</th>
+                    <th>Descrição</th>
                     <th>Opções</th>
                   </tr>
                 </thead>
                 <tbody>
-                         {% for tipoBolao in tipoboloes|dictsort:"codigo" %}
+                         {% for tipoFuncionario in tipofuncionarios|dictsort:"codigo" %}
                         <tr>
-                            <td id="id">{{tipoBolao.id}}</td>
-                            <td id="codigo">{{tipoBolao.codigo}}</td>
-                            <td id="modalidade">{{tipoBolao.modalidade.descricao}}</td>
-                            <td id="cotas">{{tipoBolao.cotas}}</td>
-                            <td id="valortotal">R$ {{tipoBolao.valorTotal}}</td>
+                            <td id="id">{{tipoFuncionario.id}}</td>
+                            <td id="descrição">{{tipoFuncionario.codigo}}</td>
                             <td>
                                <div class="btn-group">
                                     <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Visualizar"><i class="fa fa-eye"></i></button>

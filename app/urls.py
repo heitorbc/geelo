@@ -26,10 +26,21 @@ urlpatterns = [
     url(r'^cadastro_modalidade/$', cadastro_modalidade, name='cadastro_modalidade'),
     url(r'^cadastro_tipo_bolao/$', cadastro_tipo_bolao, name='cadastro_tipo_bolao'),
     url(r'^cadastro_produto/$', cadastro_produto, name='cadastro_produto'),
+    url(r'^cadastro_bolao/$', cadastro_bolao, name='cadastro_bolao'),
     url(r'^cadastro_guiche/$', cadastro_guiche, name='cadastro_guiche'),
+    url(r'^cadastro_tipo_funcionario/$', cadastro_tipo_funcionario, name='cadastro_tipo_funcionario'),
+    
+    
     url(r'^lista_funcionario/$', lista_funcionario, name='lista_funcionario'),
     url(r'^lista_modalidade/$', lista_modalidade, name='lista_modalidade'),
     url(r'^lista_tipo_bolao/$', lista_tipo_bolao, name='lista_tipo_bolao'),
     url(r'^lista_produto/$', lista_produto, name='lista_produto'),
+    url(r'^lista_bolao/$', lista_bolao, name='lista_bolao'),
     url(r'^lista_guiche/$', lista_guiche, name='lista_guiche'),
+    url(r'^lista_tipo_funcionario/$', lista_tipo_funcionario, name='lista_tipo_funcionario'),
+    
+    
+    
+    url(r'^modalidade/(?P<pk>\d+)/editar$', editar_modalidade, name='editar_modalidade'),
+    
 ]
