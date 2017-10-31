@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from datetime import datetime
 
 
 class TipoFuncionario(models.Model):
@@ -114,6 +115,7 @@ class Produto(models.Model):
     def __str__(self):
         return self.modalidade.descricao + ' - ' + str(self.dataSorteio)
 
+
 class TipoBolao(models.Model):
     #Atributos
     codigo = models.CharField(max_length=10)
@@ -132,13 +134,18 @@ class TipoBolao(models.Model):
         return self.valorBolao + self.valorTaxa
         
     #ToString
+    def getCotas(self):
+        return self.cotas
+    
+    #ToString
     def __str__(self):
         return self.codigo + " - R$" + str(self.valorBolao + self.valorTaxa)
         
         
 class Bolao(models.Model):
     #Atributos
-    dataCriacao = models.DateTimeField(blank=True,verbose_name='Data/Hora Criação')
+    identificador = models.CharField(max_length=10)
+    dataCriacao = models.DateTimeField(default=datetime.now(),blank=True,verbose_name='Data/Hora Criação')
     dataSorteio = models.DateTimeField(blank=True,verbose_name='Data/Hora Sorteio')
     tipoBolao = models.ForeignKey(TipoBolao, on_delete=models.CASCADE, related_name='tipoBolao_bolao')
     cotasDisponiveis = models.IntegerField(null=False, blank=False)

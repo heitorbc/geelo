@@ -21,6 +21,13 @@ class Form_User(forms.ModelForm):
             'password': ('Senha:'),
         }
 
+class Form_Funcionario(forms.ModelForm):
+    
+    class Meta:
+        model = Funcionario
+        fields = '__all__'
+        exclude = ['dataContratacao','dataDemissao']
+
 
 class Form_Modalidade(forms.ModelForm):
     
@@ -45,9 +52,11 @@ class Form_Produto(forms.ModelForm):
         
 class Form_Bolao(forms.ModelForm):
     
+    
     class Meta:
         model = Bolao
         fields = '__all__'
+        exclude = ['dataCriacao']
         
         
 class Form_Guiche(forms.ModelForm):

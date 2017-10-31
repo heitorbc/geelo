@@ -9,7 +9,9 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic.edit import FormView
-from datetime import datetime 
+from django.utils import timezone
+from datetime import datetime
+
 
 
 @csrf_protect
@@ -89,13 +91,12 @@ def cadastro_produto(request):
     if request.method == 'POST':
         form_produto = Form_Produto(request.POST)
         if form_produto.is_valid():
-            ### descrição ???
             descricao = form_produto.cleaned_data['descricao']
             valorProduto = form_produto.cleaned_data['valorProduto']
             valorComissao = form_produto.cleaned_data['valorComissao']
             modalidade = form_produto.cleaned_data['modalidade']
             quantidadeDisponivel = form_produto.cleaned_data['quantidadeDisponivel']
-            ### cade a dataSorteio ???
+            dataSorteio = form_produto.cleaned_data['dataSorteio']
             form_produto.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
@@ -105,14 +106,15 @@ def cadastro_produto(request):
 
 
 def cadastro_bolao(request):
+    i=1
     if request.method == 'POST':
         form_bolao = Form_Bolao(request.POST)
         if form_bolao.is_valid():
-            dataCriacao = form_bolao.cleaned_data['dataCriacao']
             dataSorteio = form_bolao.cleaned_data['dataSorteio']
-            tipoBolao = TipoBolao.objects.get(descricao='tipoBolao_bolao')
+            tipoBolao = form_bolao.cleaned_data['tipoBolao']
             cotasDisponiveis = form_bolao.cleaned_data['cotasDisponiveis']
             form_bolao.save()
+            
             return HttpResponseRedirect(request.POST.get('next'))
     else:
         form_bolao = Form_Bolao()
@@ -142,14 +144,14 @@ def cadastro_guiche(request):
 def cadastro_tipo_funcionario(request):
     if request.method == 'POST':
         form_tipo_funcionario = Form_TipoFuncionario(request.POST)
-        if form_guiche.is_valid():
+        if form_tipo_funcionario.is_valid():
             descricao = form_tipo_funcionario.cleaned_data['descricao']
             form_tipo_funcionario.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
         form_tipo_funcionario = Form_TipoFuncionario()
             
-    return render(request, 'cadastro_tipo_funcionario.html', { 'form_guiche': form_tipo_funcionario} )
+    return render(request, 'cadastro_tipo_funcionario.html', { 'form_tipo_funcionario': form_tipo_funcionario} )
 
 
 
@@ -213,6 +215,33 @@ def lista_tipo_funcionario(request):
     
 @csrf_protect
 @login_required
+def editar_funcionario(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    if request.method == 'POST':
+        form_user = Form_User(request.POST,instance=user)
+        if form_user.is_valid():
+            user = form_user.save(commit=False)
+            user.first_name = form_user.cleaned_data['first_name']
+            user.last_name = form_user.cleaned_data['last_name']
+            user.username = form_user.cleaned_data['username']
+            user.email = form_user.cleaned_data['email']
+            user.password = form_user.cleaned_data['password']
+            user.save()
+            
+            messages.success(request, 'Os dados foram atualizados com sucesso.')
+            return HttpResponseRedirect(request.POST.get('next'))
+            
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form_user = Form_User(instance=user)
+
+    return render(request, 'editar_funcionario.html', { 'form_user': form_user, 'user':user} )
+
+    
+    
+@csrf_protect
+@login_required
 def editar_modalidade(request, pk):
     modalidade = get_object_or_404(Modalidade, pk=pk)
     if request.method == 'POST':
@@ -229,3 +258,169 @@ def editar_modalidade(request, pk):
         form_modalidade = Form_Modalidade(instance=modalidade)
 
     return render(request, 'editar_modalidade.html', { 'form_modalidade': form_modalidade, 'modalidade':modalidade} )
+
+
+@csrf_protect
+@login_required
+def editar_tipo_bolao(request, pk):
+    tipoBolao = get_object_or_404(TipoBolao, pk=pk)
+    if request.method == 'POST':
+        form_tipo_bolao = Form_TipoBolao(request.POST,instance=tipoBolao)
+        if form_tipo_bolao.is_valid():
+            tipoBolao = form_tipo_bolao.save(commit=False)
+            tipoBolao.codigo = form_tipo_bolao.cleaned_data['codigo']
+            tipoBolao.modalidade = form_tipo_bolao.cleaned_data['modalidade']
+            tipoBolao.cotas = form_tipo_bolao.cleaned_data['cotas']
+            tipoBolao.valorBolao = form_tipo_bolao.cleaned_data['valorBolao']
+            tipoBolao.valorTaxa = form_tipo_bolao.cleaned_data['valorTaxa']
+            tipoBolao.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+            
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form_tipo_bolao = Form_TipoBolao(instance=tipoBolao)
+
+    return render(request, 'editar_tipo_bolao.html', { 'form_tipo_bolao': form_tipo_bolao, 'tipoBolao':tipoBolao} )
+
+@csrf_protect
+@login_required
+def editar_produto(request, pk):
+    produto = get_object_or_404(Produto, pk=pk)
+    if request.method == 'POST':
+        form_produto = Form_Produto(request.POST,instance=produto)
+        if form_produto.is_valid():
+            produto = form_produto.save(commit=False)
+            produto.descricao = form_produto.cleaned_data['descricao']
+            produto.valorProduto = form_produto.cleaned_data['valorProduto']
+            produto.valorComissao = form_produto.cleaned_data['valorComissao']
+            produto.modalidade = form_produto.cleaned_data['modalidade']
+            produto.quantidadeDisponivel = form_produto.cleaned_data['quantidadeDisponivel']
+            produto.dataSorteio = form_produto.cleaned_data['dataSorteio']
+            produto.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+            
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form_produto = Form_Produto(instance=produto)
+
+    return render(request, 'editar_produto.html', { 'form_produto': form_produto, 'produto':produto} )
+
+
+@csrf_protect
+@login_required
+def editar_bolao(request, pk):
+    bolao = get_object_or_404(Bolao, pk=pk)
+    if request.method == 'POST':
+        form_bolao = Form_Bolao(request.POST,instance=bolao)
+        if form_bolao.is_valid():
+            bolao = form_bolao.save(commit=False)
+            bolao.identificador = form_bolao.cleaned_data['identificador']
+            bolao.dataSorteio = form_bolao.cleaned_data['dataSorteio']
+            bolao.tipoBolao = form_bolao.cleaned_data['tipoBolao']
+            bolao.cotasDisponiveis = form_bolao.cleaned_data['cotasDisponiveis']
+            bolao.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+            
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form_bolao = Form_Bolao(instance=bolao)
+
+    return render(request, 'editar_bolao.html', { 'form_bolao': form_bolao, 'bolao':bolao} )
+
+@csrf_protect
+@login_required
+def editar_guiche(request, pk):
+    guiche = get_object_or_404(Guiche, pk=pk)
+    if request.method == 'POST':
+        form_guiche = Form_Guiche(request.POST,instance=guiche)
+        if form_guiche.is_valid():
+            guiche = form_guiche.save(commit=False)
+            guiche.numero = form_guiche.cleaned_data['numero']
+            guiche.descricao = form_guiche.cleaned_data['descricao']
+            guiche.codigoCEF = form_guiche.cleaned_data['codigoCEF']
+            guiche.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+            
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form_guiche = Form_Guiche(instance=guiche)
+
+    return render(request, 'editar_guiche.html', { 'form_guiche': form_guiche, 'guiche':guiche} )
+
+@csrf_protect
+@login_required
+def editar_tipo_funcionario(request, pk):
+    tipoFuncionario = get_object_or_404(TipoFuncionario, pk=pk)
+    if request.method == 'POST':
+        form_tipo_funcionario = Form_TipoFuncionario(request.POST,instance=tipoFuncionario)
+        if form_tipo_funcionario.is_valid():
+            tipoFuncionario = form_tipo_funcionario.save(commit=False)
+            tipoFuncionario.descricao = form_tipo_funcionario.cleaned_data['descricao']
+            tipoFuncionario.save()
+            return HttpResponseRedirect(request.POST.get('next'))
+            
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form_tipo_funcionario = Form_TipoFuncionario(instance=tipoFuncionario)
+
+    return render(request, 'editar_tipo_funcionario.html', { 'form_tipo_funcionario': form_tipo_funcionario, 'tipoFuncionario':tipoFuncionario} )
+
+
+
+##DELETAR
+@csrf_protect
+@login_required
+def deletar_funcionario(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    user.delete()
+    return redirect('/lista_funcionario')
+
+
+@csrf_protect
+@login_required
+def deletar_modalidade(request, pk):
+    modalidade = get_object_or_404(Modalidade, pk=pk)
+    modalidade.delete()
+    return redirect('/lista_modalidade')
+
+@csrf_protect
+@login_required
+def deletar_tipo_bolao(request, pk):
+    tipoBolao = get_object_or_404(TipoBolao, pk=pk)
+    tipoBolao.delete()
+    return redirect('/lista_tipo_bolao')
+
+@csrf_protect
+@login_required
+def deletar_produto(request, pk):
+    produto = get_object_or_404(Produto, pk=pk)
+    produto.delete()
+    return redirect('/lista_produto')
+
+@csrf_protect
+@login_required
+def deletar_bolao(request, pk):
+    bolao = get_object_or_404(Bolao, pk=pk)
+    bolao.delete()
+    return redirect('/lista_bolao')
+
+@csrf_protect
+@login_required
+def deletar_guiche(request, pk):
+    guiche = get_object_or_404(Guiche, pk=pk)
+    guiche.delete()
+    return redirect('/lista_guiche')
+    
+    
+@csrf_protect
+@login_required
+def deletar_tipo_funcionario(request, pk):
+    tipoFuncionario = get_object_or_404(TipoFuncionario, pk=pk)
+    tipoFuncionario.delete()
+    return redirect('/lista_tipo_funcionario')
+    

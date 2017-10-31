@@ -41,14 +41,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                         {% for tipoFuncionario in tipofuncionarios|dictsort:"codigo" %}
+                         {% for tipoFuncionario in tipofuncionarios|dictsort:"descricao" %}
                         <tr>
                             <td id="id">{{tipoFuncionario.id}}</td>
-                            <td id="descrição">{{tipoFuncionario.codigo}}</td>
-                            <td>
-                               <div class="btn-group">
-                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Visualizar"><i class="fa fa-eye"></i></button>
-                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button" data-placement="right" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-trash"></i></button>
+                            <td id="descrição">{{tipoFuncionario.descricao}}</td>
+                           <td>    
+                                <div class="btn-group">
+                                    <a href="{% url 'editar_tipo_funcionario' pk=tipoFuncionario.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar" class="btn btn-sm btn-default" role="button"><i class="fa fa-eye"></i></a>
+                                    <a href="{% url 'deletar_tipo_funcionario' pk=tipoFuncionario.pk %}" style="color:#7387A8;" data-placement="right" data-toggle="tooltip" data-original-title="Excluir" class="btn btn-sm btn-default" role="button"><i class="fa fa-trash"></i></a>
+                                    
                                 </div>
                             </td>
                         </tr>

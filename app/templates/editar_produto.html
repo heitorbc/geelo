@@ -1,11 +1,11 @@
 {% extends "base_site.html" %}
-{% block title %} Modalidades {% endblock title %}
+{% block title %} Produtos {% endblock title %}
 {% block content %}
   <div class="right_col" role="main">
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Editar de Modalidade</h3>
+          <h3>Editar de Produto</h3>
         </div>
 
       </div>
@@ -23,19 +23,19 @@
             <div class="x_content">
               <br />
               
-              <form id="modalidade-form" method="post"
-                  action="{% url 'editar_modalidade' pk=modalidade.pk %}">
+              <form id="produto-form" method="post"
+                  action="{% url 'editar_produto' pk=produto.pk %}">
                 {% csrf_token %}
                 <br/>
                 <div class="form">
-                    {{form_modalidade.as_p}}
+                    {{form_produto.as_p}}
                 </div>
 
                 <br/><br/>
                 <div class="row">
                     <div class="input-field">
                         <button class="btn right red darken-4" type="submit" name="submit">Editar</button>
-                        <input type="hidden" name="next" value="/lista_modalidade" />
+                        <input type="hidden" name="next" value="/lista_produto" />
                     </div>
                 </div>
             </form>

@@ -36,6 +36,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
+                    <th>identificador</th>
                     <th>Tipo de Bolão</th>
                     <th>Cotas Disponíveis</th>
                     <th>Opções</th>
@@ -46,13 +47,15 @@
                         <tr>
                             
                             <td id="id">{{bolao.id}}</td>
+                            <td id="id">{{bolao.identificador}}</td>
                             <td id="tipoBolao">{{bolao.tipoBolao.modalidade}}</td>
                             <td id="cotasDisponiveis">{{bolao.cotasDisponiveis}}</td>
                             
-                            <td>
+                            <td>    
                                 <div class="btn-group">
-                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Visualizar"><i class="fa fa-eye"></i></button>
-                                    <button class="btn btn-sm btn-default" style="color:#7387A8;" type="button" data-placement="right" data-toggle="tooltip" data-original-title="Excluir"><i class="fa fa-trash"></i></button>
+                                    <a href="{% url 'editar_bolao' pk=bolao.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar" class="btn btn-sm btn-default" role="button"><i class="fa fa-eye"></i></a>
+                                     <a href="{% url 'deletar_bolao' pk=bolao.pk %}" style="color:#7387A8;" data-placement="right" data-toggle="tooltip" data-original-title="Excluir" class="btn btn-sm btn-default" role="button"><i class="fa fa-trash"></i></a>
+                                    
                                 </div>
                             </td>
                         </tr>

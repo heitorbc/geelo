@@ -41,6 +41,20 @@ urlpatterns = [
     
     
     
+    url(r'^funcionario/(?P<pk>\d+)/editar$', editar_funcionario, name='editar_funcionario'),
     url(r'^modalidade/(?P<pk>\d+)/editar$', editar_modalidade, name='editar_modalidade'),
+    url(r'^tipo_bolao/(?P<pk>\d+)/editar$', editar_tipo_bolao, name='editar_tipo_bolao'),
+    url(r'^produto/(?P<pk>\d+)/editar$', editar_produto, name='editar_produto'),
+    url(r'^bolao/(?P<pk>\d+)/editar$', editar_bolao, name='editar_bolao'),
+    url(r'^guiche/(?P<pk>\d+)/editar$', editar_guiche, name='editar_guiche'),
+    url(r'^tipo_funcionario/(?P<pk>\d+)/editar$', editar_tipo_funcionario, name='editar_tipo_funcionario'),
     
+    
+    url(r'^funcionario/(?P<pk>\d+)/deletar', deletar_funcionario, name='deletar_funcionario'),
+    url(r'^modalidade/(?P<pk>\d+)/deletar', deletar_modalidade, name='deletar_modalidade'),
+    url(r'^tipo_bolao/(?P<pk>\d+)/deletar', deletar_tipo_bolao, name='deletar_tipo_bolao'),
+    url(r'^produto/(?P<pk>\d+)/deletar', deletar_produto, name='deletar_produto'),
+    url(r'^bolao/(?P<pk>\d+)/deletar', deletar_bolao, name='deletar_bolao'),
+    url(r'^guiche/(?P<pk>\d+)/deletar', deletar_guiche, name='deletar_guiche'),
+    url(r'^tipo_funcionario/(?P<pk>\d+)/deletar', deletar_tipo_funcionario, name='deletar_tipo_funcionario'),
 ]
