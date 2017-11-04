@@ -60,21 +60,6 @@ class Guiche(models.Model):
         return str(self.numero) + ' - ' + str(self.codigoCEF)
     
 
-class Venda(models.Model):
-    #Atributos
-    vendedor = models.ForeignKey(Funcionario, on_delete=models.CASCADE, related_name='funcionario_venda')
-    dataHoraVenda = models.DateTimeField(blank=True,verbose_name='Data/Hora da Venda')
-    guiche = models.ForeignKey(Guiche, on_delete=models.CASCADE, related_name='guiche_venda')
-
-    #Notações
-    class Meta:
-        verbose_name = ('Venda')
-        verbose_name_plural = ('Vendas')
-    
-    #ToString
-    def __str__(self):
-        return self.vendedor.user.name + ' - ' + self.dataHoraVenda
-        
         
         
 class Modalidade(models.Model):
@@ -113,7 +98,7 @@ class Produto(models.Model):
     
     #ToString
     def __str__(self):
-        return self.modalidade.descricao + ' - ' + str(self.dataSorteio)
+        return self.modalidade.descricao + ' - R$ ' + str(self.valorTotal())
 
 
 class TipoBolao(models.Model):
@@ -148,13 +133,46 @@ class Bolao(models.Model):
     dataCriacao = models.DateTimeField(default=datetime.now(),blank=True,verbose_name='Data/Hora Criação')
     dataSorteio = models.DateTimeField(blank=True,verbose_name='Data/Hora Sorteio')
     tipoBolao = models.ForeignKey(TipoBolao, on_delete=models.CASCADE, related_name='tipoBolao_bolao')
-    cotasDisponiveis = models.IntegerField(null=False, blank=False)
+    cotasDisponiveis = models.IntegerField(blank=True)
     
     #Notações
     class Meta:
         verbose_name = ('Bolão')
         verbose_name_plural = ('Bolões')
+        
+    #Venda de Uma cota
+    def vendeCota(self):
+        self.cotasDisponiveis-=1
+        
+    #Porcentagem vendida de bolao
+    def porcentagemVendida(self):
+        porcentagem = 100-((self.cotasDisponiveis*100)/self.tipoBolao.cotas)
+        return porcentagem
+    
+    #Porcentagem vendida de bolao
+    def acabando(self):
+        return self.cotasDisponiveis < 3
     
     #ToString
     def __str__(self):
-        return self.cotasDisponiveis + ' - ' + self.dataSorteio
+        return str(self.identificador) + ' - ' + str(self.tipoBolao.codigo) + ' - R$ ' + str(self.tipoBolao.valorTotal())
+        
+        
+        
+class Venda(models.Model):
+    #Atributos
+    vendedor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='funcionario_venda')
+    bolao = models.ForeignKey(Bolao, blank=True,null=True, on_delete=models.CASCADE, related_name='bolao_venda')
+    produto = models.ForeignKey(Produto, blank=True,null=True,on_delete=models.CASCADE, related_name='produto_venda')
+    dataHoraVenda = models.DateTimeField(default=datetime.now(),blank=True,verbose_name='Data/Hora da Venda')
+    guiche = models.ForeignKey(Guiche, on_delete=models.CASCADE, related_name='guiche_venda')
+
+    #Notações
+    class Meta:
+        verbose_name = ('Venda')
+        verbose_name_plural = ('Vendas')
+    
+    #ToString
+    def __str__(self):
+        return self.vendedor.username + ' - ' + str(self.dataHoraVenda)
+        

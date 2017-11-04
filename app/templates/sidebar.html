@@ -13,7 +13,7 @@
     </div>
     <div class="profile_info">
       <span>Olá,</span>
-      <h2>{{user.first_name}}</h2>
+      <h2>{{user.username}}</h2>
     </div>
   </div>
   <!-- /menu profile quick info -->
@@ -32,7 +32,8 @@
         </li>
         <li><a><i class="fa fa-edit"></i> Vendas <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="#">Vender <span class="label label-success pull-right">Em Breve</span></a></li>
+            <li><a href="{% url 'realiza_venda' %}">Vender</a></li>
+            <li><a href="{% url 'lista_venda' %}">Listar Vendas</a></li>
           </ul>
         </li>
         

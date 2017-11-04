@@ -21,8 +21,26 @@ def relatorio_home(request):
     
     return render(request, 'home.html')
     
+@csrf_protect
+@login_required
+def realiza_venda(request):
+    boloes = Bolao.objects.all()
+    return render(request, 'realiza_venda.html', {'boloes': boloes})    
     
-    
+@csrf_protect
+@login_required
+def venda_bolao(request, pk, user):
+    bolao = get_object_or_404(Bolao, pk=pk)
+    bolao.vendeCota()
+    #Venda.objects.create(vendedor=user, bolao=bolao)
+    bolao.save()
+    return redirect('/realiza_venda')
+
+@csrf_protect
+@login_required
+def lista_venda(request):
+    vendas = Venda.objects.all()
+    return render(request, 'lista_venda.html', {'vendas': vendas})
 
 
 ##### Views de Cadastros #####
@@ -106,13 +124,13 @@ def cadastro_produto(request):
 
 
 def cadastro_bolao(request):
-    i=1
     if request.method == 'POST':
         form_bolao = Form_Bolao(request.POST)
         if form_bolao.is_valid():
             dataSorteio = form_bolao.cleaned_data['dataSorteio']
             tipoBolao = form_bolao.cleaned_data['tipoBolao']
-            cotasDisponiveis = form_bolao.cleaned_data['cotasDisponiveis']
+            print(tipoBolao.cotas)
+            cotasDisponiveis = tipoBolao.cotas
             form_bolao.save()
             
             return HttpResponseRedirect(request.POST.get('next'))

@@ -22,6 +22,10 @@ from app.views import *
 urlpatterns = [
     url(r'^home/$', relatorio_home, name='home'),
     url(r'^$', relatorio_home, name='home'),
+    url(r'^realiza_venda/$', realiza_venda, name='realiza_venda'),
+    url(r'^bolao/(?P<pk>\d+)/vender', venda_bolao, name='venda_bolao'),
+    url(r'^lista_venda/$', lista_venda, name='lista_venda'),
+    
     url(r'^cadastro_funcionario/$', cadastro_funcionario, name='cadastro_funcionario'),
     url(r'^cadastro_modalidade/$', cadastro_modalidade, name='cadastro_modalidade'),
     url(r'^cadastro_tipo_bolao/$', cadastro_tipo_bolao, name='cadastro_tipo_bolao'),

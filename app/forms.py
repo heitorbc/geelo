@@ -52,7 +52,7 @@ class Form_Produto(forms.ModelForm):
         
 class Form_Bolao(forms.ModelForm):
     
-    
+
     class Meta:
         model = Bolao
         fields = '__all__'
