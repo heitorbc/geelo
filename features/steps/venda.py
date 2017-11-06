@@ -71,8 +71,8 @@ def step_impl(context):
 
 @given(u'Eu possuo tipo de bolao cadastrado no sistema')
 def step_impl(context):
-    tipoBolao = TipoBolaoFactory(codigo='M1', modalidade=Modalidade.objects.get(descricao='Mega-Sena'), cotas=8, valorBolao=7.30 , valorTaxa=3.40)
-    tipoBolao.save()
+    tipo_bolao = TipoBolaoFactory(codigo='M1', modalidade=Modalidade.objects.get(descricao='Mega-Sena'), cotas=8, valorBolao=7.30 , valorTaxa=3.40)
+    tipo_bolao.save()
     assert len(TipoBolao.objects.all()) == 1
 
 @given(u'Eu possuo bolao cadastrado no sistema')
