@@ -29,10 +29,10 @@ def realiza_venda(request):
     
 @csrf_protect
 @login_required
-def venda_bolao(request, pk, user):
+def venda_bolao(request, pk):
     bolao = get_object_or_404(Bolao, pk=pk)
     bolao.vendeCota()
-    #Venda.objects.create(vendedor=user, bolao=bolao)
+    Venda.objects.create(vendedor=request.user, bolao=bolao, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(numero='1'))
     bolao.save()
     return redirect('/realiza_venda')
 
