@@ -56,7 +56,7 @@ class FormBolao(forms.ModelForm):
     class Meta:
         model = Bolao
         fields = '__all__'
-        exclude = ['dataCriacao']
+        exclude = ['dataCriacao','cotasDisponiveis']
         
         
 class FormGuiche(forms.ModelForm):

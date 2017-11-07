@@ -125,13 +125,13 @@ def cadastro_produto(request):
 
 def cadastro_bolao(request):
     if request.method == 'POST':
-        form_bolao = formBolao(request.POST)
+        form_bolao = FormBolao(request.POST)
         if form_bolao.is_valid():
             dataSorteio = form_bolao.cleaned_data['dataSorteio']
             tipoBolao = form_bolao.cleaned_data['tipoBolao']
-            print(tipoBolao.cotas)
-            cotasDisponiveis = tipoBolao.cotas
-            form_bolao.save()
+            bolao = form_bolao.save(commit=False)
+            bolao.cotasDisponiveis = tipoBolao.cotas
+            bolao.save()
             
             return HttpResponseRedirect(request.POST.get('next'))
     else:
