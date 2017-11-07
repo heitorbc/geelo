@@ -59,8 +59,8 @@ def cadastro_funcionario(request):
             user.last_name=sobrenome
             user.first_name=nome
             user.save()
-            tipoFuncionario = TipoFuncionario.objects.get(descricao='Vendedor')
-            Funcionario.objects.create(user=user, tipoFuncionario=tipoFuncionario, nome=nome, sobrenome=sobrenome, dataContratacao=datetime.now(),salario=0)
+            tipo_Funcionario = TipoFuncionario.objects.get(descricao='Vendedor')
+            Funcionario.objects.create(user=user, tipoFuncionario=tipo_Funcionario, nome=nome, sobrenome=sobrenome, dataContratacao=datetime.now(),salario=0)
             return HttpResponseRedirect(request.POST.get('next'))
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -75,7 +75,7 @@ def cadastro_modalidade(request):
     if request.method == 'POST':
         form_modalidade = FormModalidade(request.POST)
         if form_modalidade.is_valid():
-            descricao = form_modalidade.cleaned_data['descricao']
+            form_modalidade.cleaned_data['descricao']
             form_modalidade.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
@@ -90,11 +90,11 @@ def cadastro_tipo_bolao(request):
     if request.method == 'POST':
         form_tipo_bolao = FormTipoBolao(request.POST)
         if form_tipo_bolao.is_valid():
-            codigo = form_tipo_bolao.cleaned_data['codigo']
-            modalidade = form_tipo_bolao.cleaned_data['modalidade']
-            cotas = form_tipo_bolao.cleaned_data['cotas']
-            valorBolao = form_tipo_bolao.cleaned_data['valorBolao']
-            valorTaxa = form_tipo_bolao.cleaned_data['valorTaxa']
+            form_tipo_bolao.cleaned_data['codigo']
+            form_tipo_bolao.cleaned_data['modalidade']
+            form_tipo_bolao.cleaned_data['cotas']
+            form_tipo_bolao.cleaned_data['valorBolao']
+            form_tipo_bolao.cleaned_data['valorTaxa']
             form_tipo_bolao.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
