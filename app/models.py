@@ -147,7 +147,7 @@ class Bolao(models.Model):
     #Porcentagem vendida de bolao
     def porcentagemVendida(self):
         porcentagem = 100-((self.cotasDisponiveis*100)/self.tipoBolao.cotas)
-        return porcentagem
+        return round(porcentagem, 2)
     
     #Porcentagem vendida de bolao
     def acabando(self):
