@@ -35,7 +35,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>Criado em</th>
                     <th>identificador</th>
                     <th>Tipo de Bolão</th>
                     <th>Cotas Disponíveis</th>
@@ -43,10 +43,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                         {% for bolao in boloes|dictsort:"id" %}
+                         {% for bolao in boloes|dictsort:"dataCriacao" %}
                         <tr>
                             
-                            <td id="id">{{bolao.id}}</td>
+                            <td id="id">{{bolao.dataCriacao}}</td>
                             <td id="identificador">{{bolao.identificador}}</td>
                             <td id="tipoBolao">{{bolao.tipoBolao.modalidade}}</td>
                             <td id="cotasDisponiveis">{{bolao.cotasDisponiveis}}</td>

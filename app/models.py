@@ -45,7 +45,7 @@ class Funcionario(models.Model):
         self.save()
     
     ##Como verificar perfil de usuario
-    def isProprietario(self):
+    def is_proprietario(self):
         return False
 
 
@@ -92,7 +92,7 @@ class Produto(models.Model):
         verbose_name_plural = ('Produtos')
     
     #ToString
-    def valorTotal(self):
+    def valor_total(self):
         return self.valorProduto + self.valorComissao
         
     
@@ -115,11 +115,11 @@ class TipoBolao(models.Model):
         verbose_name_plural = ('Tipo Bolões')
     
     #ToString
-    def valorTotal(self):
+    def valor_total(self):
         return self.valorBolao + self.valorTaxa
         
     #ToString
-    def getCotas(self):
+    def get_cotas(self):
         return self.cotas
     
     #ToString
@@ -141,21 +141,21 @@ class Bolao(models.Model):
         verbose_name_plural = ('Bolões')
         
     #Venda de Uma cota
-    def vendeCota(self):
+    def vende_cota(self):
         self.cotasDisponiveis-=1
         
     #Porcentagem vendida de bolao
-    def porcentagemVendida(self):
+    def porcentagem_vendida(self):
         porcentagem = 100-((self.cotasDisponiveis*100)/self.tipoBolao.cotas)
         return round(porcentagem, 2)
     
     #Porcentagem vendida de bolao
     def acabando(self):
-        return self.cotasDisponiveis < 3
+        return self.cotas_disponiveis < 3
     
     #ToString
     def __str__(self):
-        return str(self.identificador) + ' - ' + str(self.tipoBolao.codigo) + ' - R$ ' + str(self.tipoBolao.valorTotal())
+        return str(self.identificador) + ' - ' + str(self.tipoBolao.codigo) + ' - R$ ' + str(self.tipoBolao.valor_total())
         
         
         
