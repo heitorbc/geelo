@@ -48,7 +48,7 @@ def lista_venda(request):
 
 def cadastro_funcionario(request):
     if request.method == 'POST':
-        form_user = formUser(request.POST)
+        form_user = FormUser(request.POST)
         if form_user.is_valid():
             nome = form_user.cleaned_data['first_name']
             sobrenome = form_user.cleaned_data['last_name']
@@ -64,7 +64,7 @@ def cadastro_funcionario(request):
             return HttpResponseRedirect(request.POST.get('next'))
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_user = formUser()
+        form_user = FormUser()
 
     return render(request, 'cadastro_funcionario.html', { 'form_user': form_user} )
     
@@ -73,13 +73,13 @@ def cadastro_funcionario(request):
 @login_required
 def cadastro_modalidade(request):
     if request.method == 'POST':
-        form_modalidade = formModalidade(request.POST)
+        form_modalidade = FormModalidade(request.POST)
         if form_modalidade.is_valid():
             descricao = form_modalidade.cleaned_data['descricao']
             form_modalidade.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
-        form_modalidade = formModalidade()
+        form_modalidade = FormModalidade()
             
     return render(request, 'cadastro_modalidade.html', { 'form_modalidade': form_modalidade} )
 
@@ -88,7 +88,7 @@ def cadastro_modalidade(request):
 @login_required
 def cadastro_tipo_bolao(request):
     if request.method == 'POST':
-        form_tipo_bolao = formTipoBolao(request.POST)
+        form_tipo_bolao = FormTipoBolao(request.POST)
         if form_tipo_bolao.is_valid():
             codigo = form_tipo_bolao.cleaned_data['codigo']
             modalidade = form_tipo_bolao.cleaned_data['modalidade']
@@ -98,7 +98,7 @@ def cadastro_tipo_bolao(request):
             form_tipo_bolao.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
-        form_tipo_bolao = formTipoBolao()
+        form_tipo_bolao = FormTipoBolao()
             
     return render(request, 'cadastro_tipo_bolao.html', { 'form_tipo_bolao': form_tipo_bolao} )
 
@@ -107,7 +107,7 @@ def cadastro_tipo_bolao(request):
 @login_required
 def cadastro_produto(request):
     if request.method == 'POST':
-        form_produto = formProduto(request.POST)
+        form_produto = FormProduto(request.POST)
         if form_produto.is_valid():
             descricao = form_produto.cleaned_data['descricao']
             valorProduto = form_produto.cleaned_data['valorProduto']
@@ -118,7 +118,7 @@ def cadastro_produto(request):
             form_produto.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
-        form_produto = formProduto()
+        form_produto = FormProduto()
             
     return render(request, 'cadastro_produto.html', { 'form_produto': form_produto} )
 
@@ -135,7 +135,7 @@ def cadastro_bolao(request):
             
             return HttpResponseRedirect(request.POST.get('next'))
     else:
-        form_bolao = formBolao()
+        form_bolao = FormBolao()
             
     return render(request, 'cadastro_bolao.html', { 'form_bolao': form_bolao} )
 
@@ -144,7 +144,7 @@ def cadastro_bolao(request):
 @login_required
 def cadastro_guiche(request):
     if request.method == 'POST':
-        form_guiche = formGuiche(request.POST)
+        form_guiche = FormGuiche(request.POST)
         if form_guiche.is_valid():
             numero = form_guiche.cleaned_data['numero']
             descricao = form_guiche.cleaned_data['descricao']
@@ -152,7 +152,7 @@ def cadastro_guiche(request):
             form_guiche.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
-        form_guiche = formGuiche()
+        form_guiche = FormGuiche()
             
     return render(request, 'cadastro_guiche.html', { 'form_guiche': form_guiche} )
 
@@ -161,13 +161,13 @@ def cadastro_guiche(request):
 @login_required
 def cadastro_tipo_funcionario(request):
     if request.method == 'POST':
-        form_tipo_funcionario = formTipoFuncionario(request.POST)
+        form_tipo_funcionario = FormTipoFuncionario(request.POST)
         if form_tipo_funcionario.is_valid():
             descricao = form_tipo_funcionario.cleaned_data['descricao']
             form_tipo_funcionario.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
-        form_tipo_funcionario = formTipoFuncionario()
+        form_tipo_funcionario = FormTipoFuncionario()
             
     return render(request, 'cadastro_tipo_funcionario.html', { 'form_tipo_funcionario': form_tipo_funcionario} )
 
@@ -236,7 +236,7 @@ def lista_tipo_funcionario(request):
 def editar_funcionario(request, pk):
     user = get_object_or_404(User, pk=pk)
     if request.method == 'POST':
-        form_user = formUser(request.POST,instance=user)
+        form_user = FormUser(request.POST,instance=user)
         if form_user.is_valid():
             user = form_user.save(commit=False)
             user.first_name = form_user.cleaned_data['first_name']
@@ -252,7 +252,7 @@ def editar_funcionario(request, pk):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_user = formUser(instance=user)
+        form_user = FormUser(instance=user)
 
     return render(request, 'editar_funcionario.html', { 'form_user': form_user, 'user':user} )
 
@@ -263,7 +263,7 @@ def editar_funcionario(request, pk):
 def editar_modalidade(request, pk):
     modalidade = get_object_or_404(Modalidade, pk=pk)
     if request.method == 'POST':
-        form_modalidade = formModalidade(request.POST,instance=modalidade)
+        form_modalidade = FormModalidade(request.POST,instance=modalidade)
         if form_modalidade.is_valid():
             modalidade = form_modalidade.save(commit=False)
             modalidade.descricao = form_modalidade.cleaned_data['descricao']
@@ -273,7 +273,7 @@ def editar_modalidade(request, pk):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_modalidade = formModalidade(instance=modalidade)
+        form_modalidade = FormModalidade(instance=modalidade)
 
     return render(request, 'editar_modalidade.html', { 'form_modalidade': form_modalidade, 'modalidade':modalidade} )
 
@@ -283,7 +283,7 @@ def editar_modalidade(request, pk):
 def editar_tipo_bolao(request, pk):
     tipoBolao = get_object_or_404(TipoBolao, pk=pk)
     if request.method == 'POST':
-        form_tipo_bolao = formTipoBolao(request.POST,instance=tipoBolao)
+        form_tipo_bolao = FormTipoBolao(request.POST,instance=tipoBolao)
         if form_tipo_bolao.is_valid():
             tipoBolao = form_tipo_bolao.save(commit=False)
             tipoBolao.codigo = form_tipo_bolao.cleaned_data['codigo']
@@ -297,7 +297,7 @@ def editar_tipo_bolao(request, pk):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_tipo_bolao = formTipoBolao(instance=tipoBolao)
+        form_tipo_bolao = FormTipoBolao(instance=tipoBolao)
 
     return render(request, 'editar_tipo_bolao.html', { 'form_tipo_bolao': form_tipo_bolao, 'tipoBolao':tipoBolao} )
 
@@ -306,7 +306,7 @@ def editar_tipo_bolao(request, pk):
 def editar_produto(request, pk):
     produto = get_object_or_404(Produto, pk=pk)
     if request.method == 'POST':
-        form_produto = formProduto(request.POST,instance=produto)
+        form_produto = FormProduto(request.POST,instance=produto)
         if form_produto.is_valid():
             produto = form_produto.save(commit=False)
             produto.descricao = form_produto.cleaned_data['descricao']
@@ -321,7 +321,7 @@ def editar_produto(request, pk):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_produto = formProduto(instance=produto)
+        form_produto = FormProduto(instance=produto)
 
     return render(request, 'editar_produto.html', { 'form_produto': form_produto, 'produto':produto} )
 
@@ -331,7 +331,7 @@ def editar_produto(request, pk):
 def editar_bolao(request, pk):
     bolao = get_object_or_404(Bolao, pk=pk)
     if request.method == 'POST':
-        form_bolao = formBolao(request.POST,instance=bolao)
+        form_bolao = FormBolao(request.POST,instance=bolao)
         if form_bolao.is_valid():
             bolao = form_bolao.save(commit=False)
             bolao.identificador = form_bolao.cleaned_data['identificador']
@@ -344,7 +344,7 @@ def editar_bolao(request, pk):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_bolao = formBolao(instance=bolao)
+        form_bolao = FormBolao(instance=bolao)
 
     return render(request, 'editar_bolao.html', { 'form_bolao': form_bolao, 'bolao':bolao} )
 
@@ -353,7 +353,7 @@ def editar_bolao(request, pk):
 def editar_guiche(request, pk):
     guiche = get_object_or_404(Guiche, pk=pk)
     if request.method == 'POST':
-        form_guiche = formGuiche(request.POST,instance=guiche)
+        form_guiche = FormGuiche(request.POST,instance=guiche)
         if form_guiche.is_valid():
             guiche = form_guiche.save(commit=False)
             guiche.numero = form_guiche.cleaned_data['numero']
@@ -365,7 +365,7 @@ def editar_guiche(request, pk):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_guiche = formGuiche(instance=guiche)
+        form_guiche = FormGuiche(instance=guiche)
 
     return render(request, 'editar_guiche.html', { 'form_guiche': form_guiche, 'guiche':guiche} )
 
@@ -374,7 +374,7 @@ def editar_guiche(request, pk):
 def editar_tipo_funcionario(request, pk):
     tipoFuncionario = get_object_or_404(TipoFuncionario, pk=pk)
     if request.method == 'POST':
-        form_tipo_funcionario = formTipoFuncionario(request.POST,instance=tipoFuncionario)
+        form_tipo_funcionario = FormTipoFuncionario(request.POST,instance=tipoFuncionario)
         if form_tipo_funcionario.is_valid():
             tipoFuncionario = form_tipo_funcionario.save(commit=False)
             tipoFuncionario.descricao = form_tipo_funcionario.cleaned_data['descricao']
@@ -384,7 +384,7 @@ def editar_tipo_funcionario(request, pk):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_tipo_funcionario = formTipoFuncionario(instance=tipoFuncionario)
+        form_tipo_funcionario = FormTipoFuncionario(instance=tipoFuncionario)
 
     return render(request, 'editar_tipo_funcionario.html', { 'form_tipo_funcionario': form_tipo_funcionario, 'tipoFuncionario':tipoFuncionario} )
 

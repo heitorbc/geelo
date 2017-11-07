@@ -10,7 +10,7 @@ from django.forms import ModelMultipleChoiceField, ModelChoiceField
 from django.contrib.admin import widgets 
 
 
-class formUser(forms.ModelForm):
+class FormUser(forms.ModelForm):
     
     password = forms.CharField(widget=forms.PasswordInput(attrs={'required' : 'True', 'max_length' : '30', 'placeholder' : 'Senha', 'render_value':'False', 'class' : 'form-control'}))
     
@@ -21,7 +21,7 @@ class formUser(forms.ModelForm):
             'password': ('Senha:'),
         }
 
-class formFuncionario(forms.ModelForm):
+class FormFuncionario(forms.ModelForm):
     
     class Meta:
         model = Funcionario
@@ -29,28 +29,28 @@ class formFuncionario(forms.ModelForm):
         exclude = ['dataContratacao','dataDemissao']
 
 
-class formModalidade(forms.ModelForm):
+class FormModalidade(forms.ModelForm):
     
     class Meta:
         model = Modalidade
         fields = '__all__'
         
 
-class formTipoBolao(forms.ModelForm):
+class FormTipoBolao(forms.ModelForm):
     
     class Meta:
         model = TipoBolao
         fields = '__all__'
 
 
-class formProduto(forms.ModelForm):
+class FormProduto(forms.ModelForm):
     
     class Meta:
         model = Produto
         fields = '__all__'
         
         
-class formBolao(forms.ModelForm):
+class FormBolao(forms.ModelForm):
     
 
     class Meta:
@@ -59,14 +59,14 @@ class formBolao(forms.ModelForm):
         exclude = ['dataCriacao']
         
         
-class formGuiche(forms.ModelForm):
+class FormGuiche(forms.ModelForm):
     
     class Meta:
         model = Guiche
         fields = '__all__'
         
 
-class formTipoFuncionario(forms.ModelForm):
+class FormTipoFuncionario(forms.ModelForm):
     
     class Meta:
         model = TipoFuncionario
