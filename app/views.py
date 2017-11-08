@@ -60,8 +60,8 @@ def cadastro_funcionario(request):
             user.last_name=sobrenome
             user.first_name=nome
             user.save()
-            tipo_Funcionario = TipoFuncionario.objects.get(descricao='Vendedor')
-            Funcionario.objects.create(user=user, tipoFuncionario=tipo_Funcionario, nome=nome, sobrenome=sobrenome, dataContratacao=datetime.now(),salario=0)
+            tipo_funcionario = TipoFuncionario.objects.get(descricao='Vendedor')
+            Funcionario.objects.create(user=user, tipoFuncionario=tipo_funcionario, nome=nome, sobrenome=sobrenome, dataContratacao=datetime.now(),salario=0)
             return HttpResponseRedirect(request.POST.get('next'))
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -110,12 +110,12 @@ def cadastro_produto(request):
     if request.method == 'POST':
         form_produto = FormProduto(request.POST)
         if form_produto.is_valid():
-            descricao = form_produto.cleaned_data['descricao']
-            valorProduto = form_produto.cleaned_data['valorProduto']
-            valorComissao = form_produto.cleaned_data['valorComissao']
-            modalidade = form_produto.cleaned_data['modalidade']
-            quantidadeDisponivel = form_produto.cleaned_data['quantidadeDisponivel']
-            dataSorteio = form_produto.cleaned_data['dataSorteio']
+            form_produto.cleaned_data['descricao']
+            form_produto.cleaned_data['valorProduto']
+            form_produto.cleaned_data['valorComissao']
+            form_produto.cleaned_data['modalidade']
+            form_produto.cleaned_data['quantidadeDisponivel']
+            form_produto.cleaned_data['dataSorteio']
             form_produto.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
@@ -128,7 +128,7 @@ def cadastro_bolao(request):
     if request.method == 'POST':
         form_bolao = FormBolao(request.POST)
         if form_bolao.is_valid():
-            dataSorteio = form_bolao.cleaned_data['dataSorteio']
+            form_bolao.cleaned_data['dataSorteio']
             tipoBolao = form_bolao.cleaned_data['tipoBolao']
             bolao = form_bolao.save(commit=False)
             bolao.cotasDisponiveis = tipoBolao.cotas
@@ -147,9 +147,9 @@ def cadastro_guiche(request):
     if request.method == 'POST':
         form_guiche = FormGuiche(request.POST)
         if form_guiche.is_valid():
-            numero = form_guiche.cleaned_data['numero']
-            descricao = form_guiche.cleaned_data['descricao']
-            codigoCEF = form_guiche.cleaned_data['codigoCEF']
+            form_guiche.cleaned_data['numero']
+            form_guiche.cleaned_data['descricao']
+            form_guiche.cleaned_data['codigoCEF']
             form_guiche.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
@@ -164,7 +164,7 @@ def cadastro_tipo_funcionario(request):
     if request.method == 'POST':
         form_tipo_funcionario = FormTipoFuncionario(request.POST)
         if form_tipo_funcionario.is_valid():
-            descricao = form_tipo_funcionario.cleaned_data['descricao']
+            form_tipo_funcionario.cleaned_data['descricao']
             form_tipo_funcionario.save()
             return HttpResponseRedirect(request.POST.get('next'))
     else:
@@ -282,25 +282,25 @@ def editar_modalidade(request, pk):
 @csrf_protect
 @login_required
 def editar_tipo_bolao(request, pk):
-    tipoBolao = get_object_or_404(TipoBolao, pk=pk)
+    tipo_bolao = get_object_or_404(TipoBolao, pk=pk)
     if request.method == 'POST':
-        form_tipo_bolao = FormTipoBolao(request.POST,instance=tipoBolao)
+        form_tipo_bolao = FormTipoBolao(request.POST,instance=tipo_bolao)
         if form_tipo_bolao.is_valid():
-            tipoBolao = form_tipo_bolao.save(commit=False)
-            tipoBolao.codigo = form_tipo_bolao.cleaned_data['codigo']
-            tipoBolao.modalidade = form_tipo_bolao.cleaned_data['modalidade']
-            tipoBolao.cotas = form_tipo_bolao.cleaned_data['cotas']
-            tipoBolao.valorBolao = form_tipo_bolao.cleaned_data['valorBolao']
-            tipoBolao.valorTaxa = form_tipo_bolao.cleaned_data['valorTaxa']
-            tipoBolao.save()
+            tipo_bolao = form_tipo_bolao.save(commit=False)
+            tipo_bolao.codigo = form_tipo_bolao.cleaned_data['codigo']
+            tipo_bolao.modalidade = form_tipo_bolao.cleaned_data['modalidade']
+            tipo_bolao.cotas = form_tipo_bolao.cleaned_data['cotas']
+            tipo_bolao.valorBolao = form_tipo_bolao.cleaned_data['valorBolao']
+            tipo_bolao.valorTaxa = form_tipo_bolao.cleaned_data['valorTaxa']
+            tipo_bolao.save()
             return HttpResponseRedirect(request.POST.get('next'))
             
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form_tipo_bolao = FormTipoBolao(instance=tipoBolao)
+        form_tipo_bolao = FormTipoBolao(instance=tipo_bolao)
 
-    return render(request, 'editar_tipo_bolao.html', { 'form_tipo_bolao': form_tipo_bolao, 'tipoBolao':tipoBolao} )
+    return render(request, 'editar_tipo_bolao.html', { 'form_tipo_bolao': form_tipo_bolao, 'tipoBolao':tipo_bolao} )
 
 @csrf_protect
 @login_required
