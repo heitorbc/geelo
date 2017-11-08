@@ -25,13 +25,14 @@ def relatorio_home(request):
 @login_required
 def realiza_venda(request):
     boloes = Bolao.objects.all()
-    return render(request, 'realiza_venda.html', {'boloes': boloes})    
+    boloes_validos = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
+    return render(request, 'realiza_venda.html', {'boloes': boloes_validos})    
     
 @csrf_protect
 @login_required
 def venda_bolao(request, pk):
     bolao = get_object_or_404(Bolao, pk=pk)
-    bolao.vendeCota()
+    bolao.vende_cota()
     Venda.objects.create(vendedor=request.user, bolao=bolao, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(numero='1'))
     bolao.save()
     return redirect('/realiza_venda')
@@ -337,7 +338,6 @@ def editar_bolao(request, pk):
             bolao.identificador = form_bolao.cleaned_data['identificador']
             bolao.dataSorteio = form_bolao.cleaned_data['dataSorteio']
             bolao.tipoBolao = form_bolao.cleaned_data['tipoBolao']
-            bolao.cotasDisponiveis = form_bolao.cleaned_data['cotasDisponiveis']
             bolao.save()
             return HttpResponseRedirect(request.POST.get('next'))
             

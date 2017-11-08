@@ -7,6 +7,10 @@
 {% endblock stylesheets %}
 
 {% block content %}
+<head>
+  <meta http-equiv="refresh" content="60">
+</head>
+
   <div class="right_col" role="main">
     <div class="">
       <div class="page-title">
@@ -56,12 +60,12 @@
                     <td class="project_progress">
                       <div class="progress progress_sm">
                         {% if bolao.acabando %}
-                        <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="{{bolao.porcentagemVendida}}"></div>
+                        <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="{{bolao.porcentagem_vendida}}"></div>
                         {% else %}
-                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="{{bolao.porcentagemVendida}}"></div>
+                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="{{bolao.porcentagem_vendida}}"></div>
                         {% endif %}
                       </div>
-                      <small>{{bolao.porcentagemVendida}} % vendido</small>
+                      <small>{{bolao.porcentagem_vendida}} % vendido</small>
                     </td>
                     <td>
                       
@@ -81,7 +85,7 @@
                     <p>{{bolao.identificador}} - {{bolao.tipoBolao.codigo}} - {{bolao.tipoBolao.modalidade}}</p>
                     <p> 1 cota de {{bolao.cotasDisponiveis}} disponíveis</p>
                     <p>{{bolao.tipoBolao.dataSorteio}}</p>
-                    <h2>R$ {{bolao.tipoBolao.valorTotal}}</h2>
+                    <h2>R$ {{bolao.tipoBolao.valor_total}}</h2>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>

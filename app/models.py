@@ -151,7 +151,7 @@ class Bolao(models.Model):
     
     #Porcentagem vendida de bolao
     def acabando(self):
-        return self.cotas_disponiveis < 3
+        return self.cotasDisponiveis < 3
     
     #ToString
     def __str__(self):
