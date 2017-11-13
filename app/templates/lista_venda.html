@@ -27,7 +27,7 @@
             <div class="x_content">
                 
                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
-                  <a  name="vender" href="{% url 'realiza_venda' %}"><i class="fa fa-plus-circle"></i> Nova Venda</a>
+                  <a  name="vender" href="{% url 'realiza_venda_bolao' %}"><i class="fa fa-plus-circle"></i> Nova Venda</a>
                 </button>
 
 
@@ -48,7 +48,7 @@
 
 
                 <tbody>
-                  {% for venda in vendas|dictsort:"dataHoraVenda" %}
+                  {% for venda in vendas|dictsortreversed:"dataHoraVenda" %}
                   <tr>
                     <td id="id">
                       {{venda.id}}

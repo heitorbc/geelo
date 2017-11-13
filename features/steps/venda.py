@@ -12,6 +12,22 @@ from test.factories.modalidade import ModalidadeFactory
 from test.factories.tipo_bolao import TipoBolaoFactory
 
 
+#Scenario: Campos Vazios
+@given('Eu sou um usuario logado')
+def step_impl(context):
+    br = context.browser
+    br.get('https://geelo.herokuapp.com/')
+    br.get_screenshot_as_file('./screenshot.png')
+    
+    # Checks for Cross-Site Request Forgery protection input
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+
+    # Fill login form and submit it (valid version)
+    br.find_element_by_name('username').send_keys('admin')
+    br.find_element_by_name('password').send_keys('admin123456')
+    br.find_element_by_name('action').click()
+    
+
 
 @given(u'Eu estou na pagina principal')
 def step_impl(context):

@@ -1,0 +1,124 @@
+{% extends "base_site.html" %}
+
+{% block title %} Bolão {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+<head>
+  <meta http-equiv="refresh" content="60">
+</head>
+
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Vender Bolões </h3>
+        </div>
+
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            
+            <div class="x_content">
+               
+              <!-- start project list -->
+              <table class="table table-striped projects">
+                <thead>
+                  <tr>
+                    <th style="width: 1%">#</th>
+                    <th style="width: 2%">Identificador</th>
+                    <th>Tipo Bolão</th>
+                    <th>Cotas Disponíveis</th>
+                    <th>Status</th>
+                    <th>Vender</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for bolao in boloes|dictsort:"identificador" %}
+                  <tr>
+                    <td id="id">
+                      {{bolao.id}}
+                    </td>
+                     <td id="identificador">
+                       {{bolao.identificador}}
+                       </td>
+                    <td id="tipoBolao">
+                      {{bolao.tipoBolao.modalidade}}
+                    </td>
+                     <td id="cotasDisponiveis">
+                       {{bolao.cotasDisponiveis}}
+                     </td>
+                    <td class="project_progress">
+                      <div class="progress progress_sm">
+                        {% if bolao.acabando %}
+                        <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="{{bolao.porcentagem_vendida}}"></div>
+                        {% else %}
+                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="{{bolao.porcentagem_vendida}}"></div>
+                        {% endif %}
+                      </div>
+                      <small>{{bolao.porcentagem_vendida}} % vendido</small>
+                    </td>
+                    <td>
+                      
+                      <button type="button" class="btn btn-info btn-s" data-toggle="modal"  data-target=".bs-example-modal-sm-{{bolao.id}}">Vender</button>
+
+            <div class="modal fade bs-example-modal-sm-{{bolao.id}}"  tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2">Confirmação</h4>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Venda de Bolão</h4>
+                    <p>{{bolao.identificador}} - {{bolao.tipoBolao.codigo}} - {{bolao.tipoBolao.modalidade}}</p>
+                    <p> 1 cota de {{bolao.cotasDisponiveis}} disponíveis</p>
+                    <p>{{bolao.tipoBolao.dataSorteio}}</p>
+                    <h2>R$ {{bolao.tipoBolao.valor_total}}</h2>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                    <button type="button" class="btn btn-primary">
+                      <a class="botao-venda"  name="vender_bolao" href="{% url 'venda_bolao' pk=bolao.pk %}" style="color: white">Confirmar</a>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+                    </td>
+                    
+                  </tr>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+              <!-- end project list -->
+            </div>
+          </div>
+        </div>
+
+       
+        
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+
+
+

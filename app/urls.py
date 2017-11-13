@@ -24,8 +24,10 @@ urlpatterns = [
     url(r'^$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^home/$', relatorio_home, name='home'),
     url(r'^$', relatorio_home, name='home'),
-    url(r'^realiza_venda/$', realiza_venda, name='realiza_venda'),
+    url(r'^realiza_venda_bolao/$', realiza_venda_bolao, name='realiza_venda_bolao'),
+    url(r'^realiza_venda_produto/$', realiza_venda_produto, name='realiza_venda_produto'),
     url(r'^bolao/(?P<pk>\d+)/vender', venda_bolao, name='venda_bolao'),
+    url(r'^produto/(?P<pk>\d+)/vender', venda_produto, name='venda_produto'),
     url(r'^lista_venda/$', lista_venda, name='lista_venda'),
     
     url(r'^cadastro_funcionario/$', cadastro_funcionario, name='cadastro_funcionario'),

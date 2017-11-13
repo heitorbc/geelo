@@ -47,7 +47,7 @@
                          {% for produto in produtos|dictsort:"id" %}
                         <tr>
                             <td id="id">{{produto.id}}</td>
-                            <td id="descricao">{{produto.modalidade.descricao}}</td>
+                            <td id="descricao">{{produto.descricao}}</td>
                             <td id="modalidade">{{produto.modalidade.descricao}}</td>
                             <td id="quantidadeDisponivel">{{produto.quantidadeDisponivel}}</td>
                             <td id="valortotal">R$ {{produto.valor_total}}</td>
