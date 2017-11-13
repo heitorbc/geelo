@@ -34,24 +34,16 @@
               <table class="table table-striped projects">
                 <thead>
                   <tr>
-                    <th style="width: 1%">#</th>
                     <th>Descrição</th>
-                    <th>Modalidade</th>
-                    <th>Quantidade Disponível</th>
+                    <th>Disp</th>
                     <th>Vender</th>
                   </tr>
                 </thead>
                 <tbody>
                   {% for produto in produtos|dictsort:"id" %}
-                  <tr>
-                    <td id="id">
-                      {{produto.id}}
-                    </td>
-                     <td id="identificador">
-                       {{produto.descricao}}
-                       </td>
-                    <td id="tipoBolao">
-                      {{produto.modalidade.descricao}}
+                  <tr><td id="tipoBolao">
+                      {{produto.descricao}} - {{produto.modalidade.descricao}}
+                      R$ {{produto.valor_total}}
                     </td>
                      <td id="quantidadeDisponivel">
                        {{produto.quantidadeDisponivel}}

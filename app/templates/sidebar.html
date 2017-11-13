@@ -32,9 +32,9 @@
         </li>
         <li><a><i class="fa fa-edit"></i> Vendas <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="{% url 'realiza_venda_bolao' %}"><span name="submit_venda_bolao">Vender Bolão</span></a></li>
-            <li><a href="{% url 'realiza_venda_produto' %}"><span name="submit_venda_produto">Vender Produto</span></a></li>
-            <li><a href="{% url 'lista_venda' %}">Listar Vendas</a></li>
+            <li><a name="submit_venda_bolao" href="{% url 'realiza_venda_bolao' %}">Vender Bolão</a></li>
+            <li><a name="submit_venda_produto" href="{% url 'realiza_venda_produto' %}">Vender Produto</a></li>
+            <li><a name="submit_lista_venda" href="{% url 'lista_venda' %}">Listar Vendas</a></li>
           </ul>
         </li>
         
@@ -56,13 +56,13 @@
       <ul class="nav side-menu">
         <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="{% url 'lista_funcionario' %}">Funcionários</a></li>
-            <li><a href="{% url 'lista_modalidade' %}">Modalidade</a></li>
-            <li><a href="{% url 'lista_tipo_bolao' %}">Tipo Bolão</a></li>
-            <li><a href="{% url 'lista_produto' %}">Produto</a></li>
-            <li><a href="{% url 'lista_bolao' %}">Bolão</a></li>
-            <li><a href="{% url 'lista_guiche' %}">Guichê</a></li>
-            <li><a href="{% url 'lista_tipo_funcionario' %}">Tipo Funcionário</a></li>
+            <li><a name="submit_lista_funcionario" href="{% url 'lista_funcionario' %}">Funcionários</a></li>
+            <li><a name="submit_lista_modalidade" href="{% url 'lista_modalidade' %}">Modalidade</a></li>
+            <li><a name="submit_lista_tipo_bolao" href="{% url 'lista_tipo_bolao' %}">Tipo Bolão</a></li>
+            <li><a name="submit_lista_produto" href="{% url 'lista_produto' %}">Produto</a></li>
+            <li><a name="submit_lista_bolao" href="{% url 'lista_bolao' %}">Bolão</a></li>
+            <li><a name="submit_lista_guiche" href="{% url 'lista_guiche' %}">Guichê</a></li>
+            <li><a name="submit_lista_tipo_funcionario" href="{% url 'lista_tipo_funcionario' %}">Tipo Funcionário</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>

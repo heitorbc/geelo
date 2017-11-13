@@ -19,7 +19,7 @@ def step_impl(context):
 def step_impl(context):
     br = context.browser
     
-    br.get('https://geelo.herokuapp.com/')  
+    br.get('https://geelo.herokuapp.com/') 
     #br.get('$IP:$PORT)
     #br.get('https://geelo-heitorbc.c9users.io/login/')
     
@@ -73,4 +73,15 @@ def step_impl(context):
     # assert br.find_element_by_id('main_title').text == "Login success"
 
 
+@then(u'Realizo logout')
+def step_impl(context):
+    br = context.browser
+    br.get('https://geelo.herokuapp.com/logout/')
+    
+    time.sleep(3)
+    assert br.current_url.endswith('/')
+    
+    #br.get_screenshot_as_file('./screenshot.png')
+    
+    
 

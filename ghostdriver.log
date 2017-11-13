@@ -1,13 +1,13 @@
 Fontconfig warning: ignoring C.UTF-8: not a valid language tag
-[INFO  - 2017-11-13T18:57:43.633Z] GhostDriver - Main - running on port 52375
-[INFO  - 2017-11-13T18:57:44.388Z] Session [88397c70-c8a4-11e7-8b16-ffd44436ef03] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2017-11-13T18:57:44.388Z] Session [88397c70-c8a4-11e7-8b16-ffd44436ef03] - page.customHeaders:  - {}
-[INFO  - 2017-11-13T18:57:44.388Z] Session [88397c70-c8a4-11e7-8b16-ffd44436ef03] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2017-11-13T18:57:44.388Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 88397c70-c8a4-11e7-8b16-ffd44436ef03
-[ERROR - 2017-11-13T18:57:50.431Z] Session [88397c70-c8a4-11e7-8b16-ffd44436ef03] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[INFO  - 2017-11-13T21:35:51.756Z] GhostDriver - Main - running on port 57531
+[INFO  - 2017-11-13T21:35:52.279Z] Session [9f73fb20-c8ba-11e7-860c-610cbaf4fa71] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-11-13T21:35:52.279Z] Session [9f73fb20-c8ba-11e7-860c-610cbaf4fa71] - page.customHeaders:  - {}
+[INFO  - 2017-11-13T21:35:52.279Z] Session [9f73fb20-c8ba-11e7-860c-610cbaf4fa71] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-11-13T21:35:52.279Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 9f73fb20-c8ba-11e7-860c-610cbaf4fa71
+[ERROR - 2017-11-13T21:35:58.897Z] Session [9f73fb20-c8ba-11e7-860c-610cbaf4fa71] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-13T18:57:50.432Z] Session [88397c70-c8a4-11e7-8b16-ffd44436ef03] - page.onError - stack:
+[ERROR - 2017-11-13T21:35:58.898Z] Session [9f73fb20-c8ba-11e7-860c-610cbaf4fa71] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
@@ -16,6 +16,18 @@ Fontconfig warning: ignoring C.UTF-8: not a valid language tag
   J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-13T18:57:54.972Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1510599474921
+[ERROR - 2017-11-13T21:36:07.756Z] Session [9f73fb20-c8ba-11e7-860c-610cbaf4fa71] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-13T21:36:07.756Z] Session [9f73fb20-c8ba-11e7-860c-610cbaf4fa71] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-13T21:36:09.328Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1510608969301
 
   phantomjs://platform/console++.js:263 in error
