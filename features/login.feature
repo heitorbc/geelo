@@ -9,5 +9,6 @@ Feature: Efetuar Login
     Given Sou um usuario anonimo
     When Informo o usuario e senha corretos
     Then Sou redirecionado para a pagina principal do sistema
+    And Realizo logout
 
    
