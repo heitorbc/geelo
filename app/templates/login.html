@@ -33,7 +33,7 @@
               <input id="id_username" name="username" type="text" class="validate">
             </div>
             <div>
-              <input id="id_password" id="id_username_fld" name="password"type="password" class="validate">
+              <input id="id_password" id="id_username_fld" name="password" type="password" class="validate">
             </div>
             <div>
               <button id="botao-login" class="btn btn-default submit" type="submit" name="action-login">Entrar</button>
@@ -104,12 +104,10 @@
   {% endif %}
 {% if user.is_authenticated %}
 
-<h3> Usuário já esta logado...</h3>
-        <div class="text-center alert alert-warning">
-                        <a href="/home" class="btn">
-                            <i class="fa fa-magnet"></i>&nbsp; Va para HOME</a>
-                        
-                    </div>
+                    
+                    <script language= "JavaScript">
+                      location.href="/home"
+                    </script>
     {% endif %}
 
 {% endblock body %}

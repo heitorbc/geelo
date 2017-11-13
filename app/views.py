@@ -22,10 +22,18 @@ def relatorio_home(request):
     
 @csrf_protect
 @login_required
-def realiza_venda(request):
+def realiza_venda_bolao(request):
     boloes = Bolao.objects.all()
     boloes_validos = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
-    return render(request, 'realiza_venda.html', {'boloes': boloes_validos})    
+    return render(request, 'realiza_venda_bolao.html', {'boloes': boloes_validos})    
+
+@csrf_protect
+@login_required
+def realiza_venda_produto(request):
+    produtos = Produto.objects.all()
+    produtos_validos = produtos.filter(dataSorteio__gte=datetime.now())
+    return render(request, 'realiza_venda_produto.html', {'produtos': produtos_validos})    
+    
     
 @csrf_protect
 @login_required
@@ -34,7 +42,17 @@ def venda_bolao(request, pk):
     bolao.vende_cota()
     Venda.objects.create(vendedor=request.user, bolao=bolao, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(numero='1'))
     bolao.save()
-    return redirect('/realiza_venda')
+    return redirect('/realiza_venda_bolao')
+
+@csrf_protect
+@login_required
+def venda_produto(request, pk):
+    produto = get_object_or_404(Produto, pk=pk)
+    produto.vende()
+    Venda.objects.create(vendedor=request.user, produto=produto, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(numero='1'))
+    produto.save()
+    return redirect('/realiza_venda_produto')
+
 
 @csrf_protect
 @login_required

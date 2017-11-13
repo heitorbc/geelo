@@ -96,11 +96,15 @@ class Produto(models.Model):
     #ToString
     def valor_total(self):
         return self.valorProduto + self.valorComissao
-        
     
     #ToString
     def __str__(self):
-        return self.modalidade.descricao + ' - R$ ' + str(self.valorTotal())
+        return self.modalidade.descricao + ' - R$ ' + str(self.valor_total())
+
+
+    #Venda de Um Produto
+    def vende(self):
+        self.quantidadeDisponivel-=1
 
 
 class TipoBolao(models.Model):
@@ -120,7 +124,7 @@ class TipoBolao(models.Model):
     def valor_total(self):
         return self.valorBolao + self.valorTaxa
         
-    #ToString
+    #Get Cotas
     def get_cotas(self):
         return self.cotas
     
@@ -151,7 +155,7 @@ class Bolao(models.Model):
         porcentagem = 100-((self.cotasDisponiveis*100)/self.tipoBolao.cotas)
         return round(porcentagem, 2)
     
-    #Porcentagem vendida de bolao
+    #Retorna se tem menos de 2 cotas
     def acabando(self):
         return self.cotasDisponiveis < 3
     

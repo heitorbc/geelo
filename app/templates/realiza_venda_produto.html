@@ -15,7 +15,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Lista de Bolões </h3>
+          <h3>Vender Produtos </h3>
         </div>
 
         
@@ -35,43 +35,32 @@
                 <thead>
                   <tr>
                     <th style="width: 1%">#</th>
-                    <th style="width: 2%">Identificador</th>
-                    <th>Tipo Bolão</th>
-                    <th>Cotas Disponíveis</th>
-                    <th>Status</th>
+                    <th>Descrição</th>
+                    <th>Modalidade</th>
+                    <th>Quantidade Disponível</th>
                     <th>Vender</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for bolao in boloes|dictsort:"identificador" %}
+                  {% for produto in produtos|dictsort:"id" %}
                   <tr>
                     <td id="id">
-                      {{bolao.id}}
+                      {{produto.id}}
                     </td>
                      <td id="identificador">
-                       {{bolao.identificador}}
+                       {{produto.descricao}}
                        </td>
                     <td id="tipoBolao">
-                      {{bolao.tipoBolao.modalidade}}
+                      {{produto.modalidade.descricao}}
                     </td>
-                     <td id="cotasDisponiveis">
-                       {{bolao.cotasDisponiveis}}
+                     <td id="quantidadeDisponivel">
+                       {{produto.quantidadeDisponivel}}
                      </td>
-                    <td class="project_progress">
-                      <div class="progress progress_sm">
-                        {% if bolao.acabando %}
-                        <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="{{bolao.porcentagem_vendida}}"></div>
-                        {% else %}
-                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="{{bolao.porcentagem_vendida}}"></div>
-                        {% endif %}
-                      </div>
-                      <small>{{bolao.porcentagem_vendida}} % vendido</small>
-                    </td>
-                    <td>
-                      
-                      <button type="button" class="btn btn-info btn-s" data-toggle="modal"  data-target=".bs-example-modal-sm-{{bolao.id}}">Vender</button>
+                    
+                    <td id="bolao_venda">
+                      <button type="button" class="btn btn-info btn-s" data-toggle="modal"  data-target=".bs-example-modal-sm-{{produto.id}}">Vender</button>
 
-            <div class="modal fade bs-example-modal-sm-{{bolao.id}}"  tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade bs-example-modal-sm-{{produto.id}}"  tabindex="-1" role="dialog" aria-hidden="true">
               <div class="modal-dialog modal-sm">
                 <div class="modal-content">
 
@@ -81,16 +70,16 @@
                     <h4 class="modal-title" id="myModalLabel2">Confirmação</h4>
                   </div>
                   <div class="modal-body">
-                    <h4>Venda de Bolão</h4>
-                    <p>{{bolao.identificador}} - {{bolao.tipoBolao.codigo}} - {{bolao.tipoBolao.modalidade}}</p>
-                    <p> 1 cota de {{bolao.cotasDisponiveis}} disponíveis</p>
-                    <p>{{bolao.tipoBolao.dataSorteio}}</p>
-                    <h2>R$ {{bolao.tipoBolao.valor_total}}</h2>
+                    <h4>Venda de Produto</h4>
+                    <p>{{produto.descricao}} - {{produto.modalidade.descricao}}</p>
+                    <p> 1 produto de {{produto.quantidadeDisponivel}} disponíveis</p>
+                    <p>{{produto.dataSorteio}}</p>
+                    <h2>R$ {{produto.valor_total}}</h2>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
                     <button type="button" class="btn btn-primary">
-                      <a class="botao-venda"  name="vender_bolao" href="{% url 'venda_bolao' pk=bolao.pk %}" style="color: white">Confirmar</a>
+                      <a class="botao-venda"  name="vender_produto" href="{% url 'venda_produto' pk=produto.pk %}" style="color: white">Confirmar</a>
                     </button>
                   </div>
 
