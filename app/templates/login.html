@@ -36,7 +36,7 @@
               <input id="id_password" id="id_username_fld" name="password"type="password" class="validate">
             </div>
             <div>
-              <button id="botao-login" class="btn btn-default submit" type="submit" name="action">Entrar</button>
+              <button id="botao-login" class="btn btn-default submit" type="submit" name="action-login">Entrar</button>
               {% if not request.GET.next %}
                     <input type="hidden" name="next" value="/home">
                 {%else%}

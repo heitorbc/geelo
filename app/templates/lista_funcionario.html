@@ -37,8 +37,9 @@
                   <tr>
                     <th>#</th>
                     <th>Nome</th>
-                    <th>CPF </th>
-                    <th>Acesso </th>
+                    <th>CPF</th>
+                    <th>Acesso</th>
+                    <th>Contratação</th>
                     <th>Opções</th>
                   </tr>
                 </thead>
@@ -50,9 +51,11 @@
                             <td id="nome">{{funcionario.user.first_name}}</td>
                             <td id="nome">{{funcionario.cpf}}</td>
                             <td id="tipoFuncionario">{{funcionario.tipoFuncionario.descricao}}</td>
+                            <td id="id">{{funcionario.dataContratacao}}</td>
                             <td>    
                                 <div class="btn-group">
-                                    <a href="{% url 'editar_funcionario' pk=funcionario.user.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar" class="btn btn-sm btn-default" role="button"><i class="fa fa-eye"></i></a>
+                                    <a href="{% url 'editar_funcionario' pk=funcionario.user.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar Acesso" class="btn btn-sm btn-default" role="button"><i class="fa fa-eye"></i></a>
+                                    <a href="{% url 'editar_usuario' pk=funcionario.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar Dados" class="btn btn-sm btn-default" role="button"><i class="fa fa-exchange"></i></a>
                                     <a href="{% url 'deletar_funcionario' pk=funcionario.user.pk %}" style="color:#7387A8;" data-placement="right" data-toggle="tooltip" data-original-title="Excluir" class="btn btn-sm btn-default" role="button"><i class="fa fa-trash"></i></a>
                                     
                                 </div>

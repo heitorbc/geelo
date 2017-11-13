@@ -5,11 +5,7 @@ from django.contrib.auth.models import User
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
+        django_get_or_create = ('username', 'email')
 
-    username = factory.Sequence(lambda n: "user_%03d" % n)
-    email = factory.Sequence(lambda n: "user_%03d@email.com" % n)
-    password = factory.PostGenerationMethodCall('set_password', factory.Sequence(lambda n: "user_%03d123" % n))
-
-    is_superuser = True
-    is_staff = True
-    is_active = True
+    username = 'john.doe'
+    email = 'john.doe@example.com'

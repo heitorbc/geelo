@@ -18,7 +18,6 @@ from datetime import datetime
 @login_required
 
 def relatorio_home(request):
-    
     return render(request, 'home.html')
     
 @csrf_protect
@@ -45,7 +44,6 @@ def lista_venda(request):
 
 
 ##### Views de Cadastros #####
-
 
 def cadastro_funcionario(request):
     if request.method == 'POST':
@@ -256,6 +254,33 @@ def editar_funcionario(request, pk):
         form_user = FormUser(instance=user)
 
     return render(request, 'editar_funcionario.html', { 'form_user': form_user, 'user':user} )
+
+@csrf_protect
+@login_required
+def editar_usuario(request, pk):
+    #user = get_object_or_404(User, pk=pk)
+    funcionario = get_object_or_404(Funcionario, pk=pk)
+    if request.method == 'POST':
+        form_funcionario = FormFuncionario(request.POST,instance=funcionario)
+        if form_funcionario.is_valid():
+            #funcionario = form_funcionario.save(commit=False)
+            form_funcionario.cleaned_data['tipoFuncionario']
+            form_funcionario.cleaned_data['cpf']
+            form_funcionario.cleaned_data['rg']
+            form_funcionario.cleaned_data['ctps']
+            form_funcionario.cleaned_data['salario']
+            funcionario.save()
+            
+            messages.success(request, 'Os dados foram atualizados com sucesso.')
+            return HttpResponseRedirect(request.POST.get('next'))
+            
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form_funcionario = FormFuncionario(instance=funcionario)
+
+    return render(request, 'editar_usuario.html', { 'form_funcionario': form_funcionario, 'funcionario':funcionario} )
+
 
     
     

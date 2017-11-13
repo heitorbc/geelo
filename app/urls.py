@@ -18,8 +18,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from app.views import *
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^home/$', relatorio_home, name='home'),
     url(r'^$', relatorio_home, name='home'),
     url(r'^realiza_venda/$', realiza_venda, name='realiza_venda'),
@@ -46,6 +48,7 @@ urlpatterns = [
     
     
     url(r'^funcionario/(?P<pk>\d+)/editar$', editar_funcionario, name='editar_funcionario'),
+    url(r'^usuario/(?P<pk>\d+)/editar$', editar_usuario, name='editar_usuario'),
     url(r'^modalidade/(?P<pk>\d+)/editar$', editar_modalidade, name='editar_modalidade'),
     url(r'^tipo_bolao/(?P<pk>\d+)/editar$', editar_tipo_bolao, name='editar_tipo_bolao'),
     url(r'^produto/(?P<pk>\d+)/editar$', editar_produto, name='editar_produto'),

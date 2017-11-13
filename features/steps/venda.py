@@ -12,20 +12,19 @@ from test.factories.modalidade import ModalidadeFactory
 from test.factories.tipo_bolao import TipoBolaoFactory
 
 
-    
-@given(u'Eu possuo usuarios cadastrados no sistema')
+
+@given(u'Eu estou na pagina principal')
 def step_impl(context):
-    user_heitor = UserFactory(username='heitor', email='heitorhbc@gmail.com', password='admin123456')
-    user_thales = UserFactory(username='thales', email='thalescarreta@gmail.com', password='admin123456')
-    user_root = UserFactory(username='admin', email='superuser@gmail.com', password='admin123456')
+    br = context.browser
+    br.get(context.base_url + '/home')
     
-    lista_usuarios = [user_heitor, user_thales, user_root]
+    # Checks for Cross-Site Request Forgery protection input
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    assert br.current_url.endswith('/home/')
     
-    salva_participantes(lista_usuarios)
-    assert len(User.objects.all()) == 3
-
-
-
+    
+    
+# TEST: Verificar cadastros    
 @given(u'Eu possuo tipo de funcionario cadastrado no sistema')
 def step_impl(context):
     descricao = TipoFuncionarioFactory(descricao='Vendedor')
@@ -33,7 +32,6 @@ def step_impl(context):
     descricao.save()
     assert len(TipoFuncionario.objects.all()) == 1
 
-    
     
 @given(u'Eu possuo funcionario cadastrado no sistema')
 def step_impl(context):
@@ -46,12 +44,12 @@ def step_impl(context):
     assert len(Funcionario.objects.all()) == 1
 
 
-
 @given(u'Eu possuo guiche cadastrado no sistema')
 def step_impl(context):
     guiche = GuicheFactory(numero=1, descricao='Prioritario Jogos', codigoCEF=191902)
     guiche.save()
     assert len(Guiche.objects.all()) == 1
+
 
 @given(u'Eu possuo modalidade cadastrado no sistema')
 def step_impl(context):
@@ -71,28 +69,75 @@ def step_impl(context):
 
 @given(u'Eu possuo tipo de bolao cadastrado no sistema')
 def step_impl(context):
-    tipo_bolao = TipoBolaoFactory(codigo='M1', modalidade=Modalidade.objects.get(descricao='Mega-Sena'), cotas=8, valorBolao=7.30 , valorTaxa=3.40)
+    tipo_bolao = TipoBolaoFactory(codigo='T1', modalidade=Modalidade.objects.get(descricao='Mega-Sena'), cotas=8, valorBolao=7.30 , valorTaxa=3.40)
     tipo_bolao.save()
     assert len(TipoBolao.objects.all()) == 1
 
+
 @given(u'Eu possuo bolao cadastrado no sistema')
 def step_impl(context):
-    bolao = BolaoFactory(identificador='A', dataCriacao='2018-01-01 10:00', dataSorteio='2018-01-01 19:00', tipoBolao=TipoBolao.objects.get(codigo='M1'), cotasDisponiveis='8')
+    bolao = BolaoFactory(identificador='T', dataCriacao='2018-01-01 10:00', dataSorteio='2018-01-01 19:00', tipoBolao=TipoBolao.objects.get(codigo='T1'), cotasDisponiveis='8')
     bolao.save()
     assert len(Bolao.objects.all()) == 1
-
-@when(u'Eu chamo a funcao efetuar venda')
-def step_impl(context):
-    pass
-
-@then(u'A venda é efetuada')
-def step_impl(context):
-    pass
-
-@then(u'A venda é armazenada no sistema')
-def step_impl(context):
-    pass    
     
-def salva_participantes(participantes):
-    for participante in participantes:
-        participante.save()   
+
+
+# TEST: Abrir tela de vendas e carregar bolões disponíveis
+@when(u'Eu clico na aba vender')
+def step_impl(context):
+    br = context.browser
+    br.get(context.base_url + '/')
+    #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    br.find_element_by_name('submit_venda').click()    
+
+
+@then(u'Sou redirecionado para a pagina de vendas')
+def step_impl(context):
+    br = context.browser
+    br.get(context.base_url + '/realiza_venda')
+    #assert br.current_url.endswith('/realiza_venda/')
+
+
+@then(u'Carrego os boloes disponiveis na tela')
+def step_impl(context):
+    boloes = Bolao.objects.all()
+    boloes_validos = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
+    assert len(TipoBolao.objects.all()) > 0
+
+
+
+
+# TEST: Efetuar Venda de Bolão
+@given(u'Eu estou na pagina de vendas')
+def step_impl(context):
+    br = context.browser
+    br.get(context.base_url + '/realiza_venda')
+
+    # Checks for Cross-Site Request Forgery protection input
+    #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    #assert br.current_url.endswith('/realiza_venda/')
+
+
+@when(u'Eu clico no botao vender')
+def step_impl(context):
+    br = context.browser
+    #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    br.find_element_by_name('Vender').click()
+
+
+@then(u'A venda e efetuada e armazenada')
+def step_impl(context):
+    bolao = get_object_or_404(Bolao, pk=pk)
+    bolao.vende_cota()
+    Venda.objects.create(vendedor=request.user, bolao=bolao, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(numero='1'))
+    bolao.save()
+    return redirect('/realiza_venda')
+
+
+    
+    
+    
+
+
+
+

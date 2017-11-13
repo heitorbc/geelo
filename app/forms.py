@@ -17,6 +17,7 @@ class FormUser(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password']
+        #fields = '__all__'
         labels = {
             'password': ('Senha:'),
         }
@@ -26,7 +27,7 @@ class FormFuncionario(forms.ModelForm):
     class Meta:
         model = Funcionario
         fields = '__all__'
-        exclude = ['dataContratacao','dataDemissao']
+        exclude = ['user','nome','sobrenome','dataContratacao','dataDemissao']
 
 
 class FormModalidade(forms.ModelForm):

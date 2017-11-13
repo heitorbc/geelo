@@ -1,0 +1,51 @@
+{% extends "base_site.html" %}
+{% block title %} Usuarios {% endblock title %}
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Editar de Usuario</h3>
+        </div>
+
+      </div>
+      
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2><small>preencha os campos abaixo</small></h2>
+              
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              
+              <form id="funcionario-form" method="post"
+                  action="{% url 'editar_usuario' pk=user.pk %}">
+                {% csrf_token %}
+                <br/>
+                <div class="form">
+                    {{form_funcionario.as_p}}
+                </div>
+
+                <br/><br/>
+                <div class="row">
+                    <div class="input-field">
+                        <button class="btn right red darken-4" type="submit" name="submit">Editar</button>
+                        <input type="hidden" name="next" value="/lista_funcionario" />
+                    </div>
+                </div>
+            </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+    </div>
+  </div>
+{% endblock content %}
