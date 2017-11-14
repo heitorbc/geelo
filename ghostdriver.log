@@ -1,27 +1,42 @@
 Fontconfig warning: ignoring C.UTF-8: not a valid language tag
-[INFO  - 2017-11-13T23:43:44.528Z] GhostDriver - Main - running on port 33863
-[INFO  - 2017-11-13T23:43:44.770Z] Session [7c9d59e0-c8cc-11e7-8cdb-21217a45b0cd] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2017-11-13T23:43:44.770Z] Session [7c9d59e0-c8cc-11e7-8cdb-21217a45b0cd] - page.customHeaders:  - {}
-[INFO  - 2017-11-13T23:43:44.771Z] Session [7c9d59e0-c8cc-11e7-8cdb-21217a45b0cd] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2017-11-13T23:43:44.771Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 7c9d59e0-c8cc-11e7-8cdb-21217a45b0cd
-[INFO  - 2017-11-13T23:46:14.620Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-13T23:51:14.934Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-13T23:56:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:01:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:06:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:11:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:16:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:21:14.932Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:26:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:31:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:36:14.933Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:41:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:46:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:51:14.936Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T00:56:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T01:01:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T01:06:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T01:11:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T01:16:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T01:21:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2017-11-14T01:26:14.931Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-11-14T18:33:53.315Z] GhostDriver - Main - running on port 34245
+[INFO  - 2017-11-14T18:33:53.469Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-11-14T18:33:53.469Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.customHeaders:  - {}
+[INFO  - 2017-11-14T18:33:53.469Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-11-14T18:33:53.469Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 5dbf6470-c96a-11e7-93bb-872579ef76b8
+[ERROR - 2017-11-14T18:34:11.244Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-14T18:34:11.244Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-14T18:34:19.150Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-14T18:34:19.150Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-14T18:34:19.762Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-14T18:34:19.763Z] Session [5dbf6470-c96a-11e7-93bb-872579ef76b8] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error

@@ -46,9 +46,12 @@ class Funcionario(models.Model):
         self.dataDemissao = timezone.now()
         self.save()
     
-    ##Como verificar perfil de usuario
-    def is_proprietario(self):
-        return False
+    ##Verificar perfil de usuario é diferente de vendedor
+    def is_admin(self):
+        if self.tipoFuncionario==TipoFuncionario.objects.get(descricao='Vendedor'):
+            return False
+        else:
+            return True
 
 
 class Guiche(models.Model):

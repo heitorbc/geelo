@@ -20,10 +20,10 @@ def step_impl(context):
     br = context.browser
     
     br.get('https://geelo.herokuapp.com/') 
-    #br.get('$IP:$PORT)
-    #br.get('https://geelo-heitorbc.c9users.io/login/')
+    #br.get('$IP:$PORT')
+    #br.get(context.base_url + '/login')
     
-    
+    br.get_screenshot_as_file('./screenshot.png')
     # Checks for Cross-Site Request Forgery protection input (once again)
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 

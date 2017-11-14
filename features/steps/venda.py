@@ -36,15 +36,7 @@ def step_impl(context):
     br.find_element_by_name('password').send_keys('admin123456')
     br.find_element_by_name('action-login').click()
 
-    
 
-@given(u'Eu estou na pagina principal')
-def step_impl(context):
-    br = context.browser
-    #br.get_screenshot_as_file('./screenshot.png')
-    
-    # Checks for Cross-Site Request Forgery protection input
-    assert br.current_url.endswith('/home/')
     
     
     
@@ -107,47 +99,25 @@ def step_impl(context):
 
 
 
-### TEST: Abrir tela de vendas e carregar bolões disponíveis
-@when(u'Eu clico na aba vender')
-def step_impl(context):
-    br = context.browser
-    br.get('https://geelo.herokuapp.com/')
-    
-    #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
-    
-    br.find_element_by_name('submit_venda_bolao').click()
-    br.get_screenshot_as_file('./screenshot1.png')
-    
-    
-@then(u'Sou redirecionado para a pagina de vendas')
-def step_impl(context):
-    time.sleep(3)
-    br = context.browser
-    br.get_screenshot_as_file('./screenshot2.png')
-    
-    #br.get('https://geelo.herokuapp.com/realiza_venda_bolao/')
-    assert br.current_url.endswith('/realiza_venda_bolao/')
-    
-    
-@then(u'Carrego os boloes disponiveis na tela')
-def step_impl(context):
+
+### TEST: Efetuar Venda de Bolão
+def carregaboloes():
     boloes = Bolao.objects.all()
     boloes_validos = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
     assert len(TipoBolao.objects.all()) > 0
 
 
-
-
-### TEST: Efetuar Venda de Bolão
 @given(u'Eu estou na pagina de vendas')
 def step_impl(context):
+    carregaboloes()
+    
     br = context.browser
-    br.get('https://geelo.herokuapp.com/')
+    br.get('https://geelo.herokuapp.com/realiza_venda_bolao/')
 
     #Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
-    assert br.current_url.endswith('/realiza_venda/')
-
+    assert br.current_url.endswith('/realiza_venda_bolao/')
+    
 
 @when(u'Eu clico no botao vender')
 def step_impl(context):
@@ -155,6 +125,11 @@ def step_impl(context):
     #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     br.find_element_by_name('Vender').click()
 
+
+@then(u'Eu confirmo a venda')
+def step_impl(context):
+    
+    
 
 @then(u'A venda e efetuada e armazenada')
 def step_impl(context):
