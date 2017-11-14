@@ -9,7 +9,6 @@ import datetime
 from django.forms import ModelMultipleChoiceField, ModelChoiceField
 from django.contrib.admin import widgets 
 from django.forms import widgets
-from datetimewidget.widgets import DateTimeWidget
 
 
 class FormUser(forms.ModelForm):
