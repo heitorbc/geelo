@@ -13,7 +13,7 @@
     </div>
     <div class="profile_info">
       <span>Olá,</span>
-      <h2>{{user.username}}</h2>
+      <h2>{{user.first_name}}</h2>
     </div>
   </div>
   <!-- /menu profile quick info -->
@@ -32,25 +32,35 @@
         </li>
         <li><a><i class="fa fa-edit"></i> Vendas <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a name="submit_venda_bolao" href="{% url 'realiza_venda_bolao' %}">Vender Bolão</a></li>
-            <li><a name="submit_venda_produto" href="{% url 'realiza_venda_produto' %}">Vender Produto</a></li>
-            <li><a name="submit_lista_venda" href="{% url 'lista_venda' %}">Listar Vendas</a></li>
+            <li><a href="{% url 'realiza_venda_bolao' %}"><button id="id_venda_bolao" class="btn blue z-depth-1 submit" type="submit" name="submit_venda_bolao">Vender Bolão</button></a></li>
+            <li><a href="{% url 'realiza_venda_produto' %}"><button id="id_venda_produto" class="btn blue z-depth-1 submit" type="submit" name="submit_venda_produto">Vender Produto</button></a></li>
+            <li><a href="{% url 'lista_venda' %}"><button id="id_lista_venda" class="btn blue z-depth-1 submit" type="submit" name="submit_lista_venda">Listar Vendas</button></a></li>
           </ul>
         </li>
-        
-        <li><a><i class="fa fa-table"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
+        {% if user.funcionario.is_admin %}
+        <li><a><i class="fa fa-table"></i> Relatórios Gerenciais<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="#">Semanal <span class="label label-success pull-right">Em Breve</span> </a></li>
             <li><a href="#">Mensal <span class="label label-success pull-right">Em Breve</span> </a></li>
             <li><a href="#">Por Vendedor <span class="label label-success pull-right">Em Breve</span> </a></li>
           </ul>
         </li>
+        {% else %}
+        <li><a><i class="fa fa-table"></i>Meus Relatórios <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="#">Diário <span class="label label-success pull-right">Em Breve</span> </a></li>
+            <li><a href="#">Semanal <span class="label label-success pull-right">Em Breve</span> </a></li>
+            <li><a href="#">Mensal <span class="label label-success pull-right">Em Breve</span> </a></li>
+          </ul>
+        </li>
         
+        {% endif %}
         </li>
         
         </li>
       </ul>
     </div>
+    {% if user.funcionario.is_admin %}
     <div class="menu_section">
       <h3>Gerencial</h3>
       <ul class="nav side-menu">
@@ -78,6 +88,7 @@
         
       </ul>
     </div>
+    {% endif %}
   </div>
   <!-- /sidebar menu -->
 

@@ -57,6 +57,14 @@ def venda_produto(request, pk):
 @csrf_protect
 @login_required
 def lista_venda(request):
+    '''
+    ##LIMITAR ACESSO VENDAS POR USUARIO LOGADO SE NAO FOR ADMIN
+    if user.funcionario.is_admin:
+        vendas = Venda.objects.all()
+    else:
+        vendas = Venda.objects.filter(vendedor=user)
+    '''
+    
     vendas = Venda.objects.all()
     return render(request, 'lista_venda.html', {'vendas': vendas})
 

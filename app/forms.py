@@ -8,6 +8,8 @@ from datetime import date
 import datetime
 from django.forms import ModelMultipleChoiceField, ModelChoiceField
 from django.contrib.admin import widgets 
+from django.forms import widgets
+from datetimewidget.widgets import DateTimeWidget
 
 
 class FormUser(forms.ModelForm):
@@ -17,7 +19,6 @@ class FormUser(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password']
-        #fields = '__all__'
         labels = {
             'password': ('Senha:'),
         }
@@ -52,7 +53,7 @@ class FormProduto(forms.ModelForm):
         
         
 class FormBolao(forms.ModelForm):
-    
+    dataSorteio = forms.DateTimeField(widget=forms.SplitDateTimeWidget())
 
     class Meta:
         model = Bolao
