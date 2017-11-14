@@ -48,7 +48,7 @@ def step_impl(context):
     
     
     
-# TEST: Verificar cadastros    
+### TEST: Verificar cadastros    
 @given(u'Eu possuo tipo de funcionario cadastrado no sistema')
 def step_impl(context):
     descricao = TipoFuncionarioFactory(descricao='Vendedor')
@@ -107,25 +107,28 @@ def step_impl(context):
 
 
 
-# TEST: Abrir tela de vendas e carregar bolões disponíveis
+### TEST: Abrir tela de vendas e carregar bolões disponíveis
 @when(u'Eu clico na aba vender')
 def step_impl(context):
-    #br = context.browser
-    #br.get('https://geelo.herokuapp.com/')
+    br = context.browser
+    br.get('https://geelo.herokuapp.com/')
+    
     #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     
-    #br.find_element_by_name('submit_venda_bolao').click()
-    pass
+    br.find_element_by_name('submit_venda_bolao').click()
+    br.get_screenshot_as_file('./screenshot1.png')
     
-
+    
 @then(u'Sou redirecionado para a pagina de vendas')
 def step_impl(context):
+    time.sleep(3)
     br = context.browser
-    br.get(context.base_url + '/realiza_venda_bolao')
-    #assert br.current_url.endswith('/realiza_venda/')
-    br.get_screenshot_as_file('./screenshot.png')
-
-
+    br.get_screenshot_as_file('./screenshot2.png')
+    
+    #br.get('https://geelo.herokuapp.com/realiza_venda_bolao/')
+    assert br.current_url.endswith('/realiza_venda_bolao/')
+    
+    
 @then(u'Carrego os boloes disponiveis na tela')
 def step_impl(context):
     boloes = Bolao.objects.all()
@@ -135,15 +138,15 @@ def step_impl(context):
 
 
 
-# TEST: Efetuar Venda de Bolão
+### TEST: Efetuar Venda de Bolão
 @given(u'Eu estou na pagina de vendas')
 def step_impl(context):
     br = context.browser
-    br.get(context.base_url + '/realiza_venda')
+    br.get('https://geelo.herokuapp.com/')
 
-    # Checks for Cross-Site Request Forgery protection input
-    #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
-    #assert br.current_url.endswith('/realiza_venda/')
+    #Checks for Cross-Site Request Forgery protection input
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    assert br.current_url.endswith('/realiza_venda/')
 
 
 @when(u'Eu clico no botao vender')
