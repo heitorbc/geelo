@@ -19,9 +19,9 @@ def step_impl(context):
 def step_impl(context):
     br = context.browser
     
-    br.get('https://geelo.herokuapp.com/') 
+    #br.get('https://geelo.herokuapp.com/')
     #br.get('$IP:$PORT')
-    #br.get(context.base_url + '/login')
+    br.get(context.base_url + '/login')
     
     #br.get_screenshot_as_file('./screenshot.png')
     
