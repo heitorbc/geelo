@@ -150,3 +150,5 @@ LOGIN_URL = 'login'
 
 ##comentar/descomentar
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+DEFAULT_DOMAIN = '127.0.0.1:8000'
