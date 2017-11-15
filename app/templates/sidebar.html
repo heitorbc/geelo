@@ -32,9 +32,9 @@
         </li>
         <li><a><i class="fa fa-edit"></i> Vendas <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="{% url 'realiza_venda_bolao' %}"><button id="id_venda_bolao" class="btn blue z-depth-1 submit" type="submit" name="submit_venda_bolao">Vender Bolão</button></a></li>
-            <li><a href="{% url 'realiza_venda_produto' %}"><button id="id_venda_produto" class="btn blue z-depth-1 submit" type="submit" name="submit_venda_produto">Vender Produto</button></a></li>
-            <li><a href="{% url 'lista_venda' %}"><button id="id_lista_venda" class="btn blue z-depth-1 submit" type="submit" name="submit_lista_venda">Listar Vendas</button></a></li>
+            <li><a name="submit_venda_bolao" href="{% url 'realiza_venda_bolao' %}">Vender Bolão</a></li>
+            <li><a name="submit_venda_produto" href="{% url 'realiza_venda_produto' %}">Vender Produto</a></li>
+            <li><a name="submit_lista_venda" href="{% url 'lista_venda' %}">Listar Vendas</a></li>
           </ul>
         </li>
         {% if user.funcionario.is_admin %}

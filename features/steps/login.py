@@ -23,7 +23,8 @@ def step_impl(context):
     #br.get('$IP:$PORT')
     #br.get(context.base_url + '/login')
     
-    br.get_screenshot_as_file('./screenshot.png')
+    #br.get_screenshot_as_file('./screenshot.png')
+    
     # Checks for Cross-Site Request Forgery protection input (once again)
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 
@@ -37,7 +38,7 @@ def step_impl(context):
 
 @then(u'Sou redirecionado para a pagina de login ate que eu informe usuario e senha corretos')
 def step_impl(context):
-    time.sleep(3)
+    time.sleep(1)
     br = context.browser
     #br.get_screenshot_as_file('./login_falhou.png')
     
@@ -64,7 +65,7 @@ def step_impl(context):
 
 @then(u'Sou redirecionado para a pagina principal do sistema')
 def step_impl(context):
-    time.sleep(3)
+    time.sleep(1)
     br = context.browser
     #br.get_screenshot_as_file('./login_passou.png')
     
@@ -78,7 +79,7 @@ def step_impl(context):
     br = context.browser
     br.get('https://geelo.herokuapp.com/logout/')
     
-    time.sleep(3)
+    time.sleep(1)
     assert br.current_url.endswith('/')
     
     #br.get_screenshot_as_file('./screenshot.png')
