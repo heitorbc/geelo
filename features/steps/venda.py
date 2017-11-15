@@ -31,14 +31,13 @@ def step_impl(context):
     
     # Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
-
+    
     # Fill login form and submit it (valid version)
     br.find_element_by_name('username').send_keys('admin')
     br.find_element_by_name('password').send_keys('admin123456')
     br.find_element_by_name('action-login').click()
 
 
-    
     
     
 ### TEST: Verificar cadastros    

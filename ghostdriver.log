@@ -1,9 +1,57 @@
 Fontconfig warning: ignoring C.UTF-8: not a valid language tag
-[INFO  - 2017-11-15T22:17:24.263Z] GhostDriver - Main - running on port 44789
-[INFO  - 2017-11-15T22:17:24.869Z] Session [c1f8b340-ca52-11e7-889a-ad0dc19d216a] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2017-11-15T22:17:24.869Z] Session [c1f8b340-ca52-11e7-889a-ad0dc19d216a] - page.customHeaders:  - {}
-[INFO  - 2017-11-15T22:17:24.869Z] Session [c1f8b340-ca52-11e7-889a-ad0dc19d216a] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2017-11-15T22:17:24.869Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: c1f8b340-ca52-11e7-889a-ad0dc19d216a
-[ERROR - 2017-11-15T22:17:26.469Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1510784246419
+[INFO  - 2017-11-15T23:11:56.703Z] GhostDriver - Main - running on port 33369
+[INFO  - 2017-11-15T23:11:56.964Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-11-15T23:11:56.964Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.customHeaders:  - {}
+[INFO  - 2017-11-15T23:11:56.964Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-11-15T23:11:56.964Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 604c9af0-ca5a-11e7-8e4f-25ff1f54d635
+[ERROR - 2017-11-15T23:11:58.812Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:11:58.813Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:11:59.156Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:11:59.156Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:12:04.655Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:12:04.655Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:12:06.830Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:12:06.830Z] Session [604c9af0-ca5a-11e7-8e4f-25ff1f54d635] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-15T23:12:07.884Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1510787527855
 
   phantomjs://platform/console++.js:263 in error

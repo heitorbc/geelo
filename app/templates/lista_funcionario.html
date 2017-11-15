@@ -54,9 +54,9 @@
                             <td id="id">{{funcionario.dataContratacao}}</td>
                             <td>    
                                 <div class="btn-group">
-                                    <a href="{% url 'editar_funcionario' pk=funcionario.user.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar Acesso" class="btn btn-sm btn-default" role="button"><i class="fa fa-eye"></i></a>
-                                    <a href="{% url 'editar_usuario' pk=funcionario.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar Dados" class="btn btn-sm btn-default" role="button"><i class="fa fa-exchange"></i></a>
-                                    <a href="{% url 'deletar_funcionario' pk=funcionario.user.pk %}" style="color:#7387A8;" data-placement="right" data-toggle="tooltip" data-original-title="Excluir" class="btn btn-sm btn-default" role="button"><i class="fa fa-trash"></i></a>
+                                    <a href="{% url 'editar_funcionario' pk=funcionario.user.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar Acesso" name="submit-vizualizar" class="btn btn-sm btn-default" role="button"><i class="fa fa-eye"></i></a>
+                                    <a href="{% url 'editar_usuario' pk=funcionario.pk %}" style="color:#7387A8;" data-placement="top" data-toggle="tooltip" data-original-title="Visualizar Dados" name="submit-vizualizar-user" class="btn btn-sm btn-default" role="button"><i class="fa fa-exchange"></i></a>
+                                    <a href="{% url 'deletar_funcionario' pk=funcionario.user.pk %}" style="color:#7387A8;" data-placement="right" data-toggle="tooltip" data-original-title="Excluir" name="submit-excluir" class="btn btn-sm btn-default" role="button"><i class="fa fa-trash"></i></a>
                                     
                                 </div>
                             </td>
