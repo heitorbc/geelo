@@ -150,3 +150,5 @@ LOGIN_URL = 'login'
 
 ##comentar/descomentar
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
