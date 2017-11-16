@@ -63,9 +63,7 @@ class Guiche(models.Model):
     #ToString
     def __str__(self):
         return str(self.numero) + ' - ' + str(self.codigoCEF)
-    
-    def getNumero(self):
-        return str(self.numero)
+
 
         
         
