@@ -7,6 +7,8 @@ import time
 @given(u'Sou um usuario anonimo')
 def step_impl(context):
     # from django.contrib.auth.models import User
+    br = context.browser
+    br.get('https://geelo.herokuapp.com/logout/')
 
     # Creates a dummy user for our tests (user is not authenticated at this point)
     u = UserFactory(username='admin', email='admin@example.com')
