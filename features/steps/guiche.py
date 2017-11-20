@@ -18,11 +18,11 @@ import time
 ### TESTE: Guiche cadastrado com sucesso
 
 def carregaBaseGuiches():
-    guiche1 = GuicheFactory(numero=1, descricao='Idosos', codigoCEF=190901)
+    guiche1 = GuicheFactory(numero=1, descricao='Prioritario Jogos', codigoCEF=191901)
     guiche1.save()
-    guiche2 = GuicheFactory(numero=2, descricao='Somente Jogos', codigoCEF=190902)
+    guiche2 = GuicheFactory(numero=2, descricao='Normal', codigoCEF=191902)
     guiche2.save()
-    guiche3 = GuicheFactory(numero=3, descricao='Normal', codigoCEF=190903)
+    guiche3 = GuicheFactory(numero=3, descricao='Prioritario Idoso', codigoCEF=191903)
     guiche3.save()
     assert len(Guiche.objects.all()) == 3
 
@@ -35,27 +35,22 @@ def step_impl(context):
     #Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     assert br.current_url.endswith('/cadastro_guiche/')
-    #carregaGuichesCadastrados()
-    
     time.sleep(1)
-    br.get_screenshot_as_file('./screenshot1.png')
-    
-    
 
+    
 @given(u'Eu informo um numero do guiche ainda nao cadastrado')
 def step_impl(context):
     br = context.browser
     #Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     
-    guiche_boolean = Guiche.objects.filter(numero=9).exists()
+    guiche_boolean = Guiche.objects.filter(numero=0).exists()
     assert guiche_boolean == False
     
-    br.find_element_by_name('numero').send_keys(9)
-    assert br.find_element_by_name('numero').get_attribute('value') == '9'
-
+    br.find_element_by_name('numero').send_keys(0)
+    assert br.find_element_by_name('numero').get_attribute('value') == '0'
     time.sleep(1)
-    br.get_screenshot_as_file('./screenshot2.png')
+
 
 
 @given(u'Eu informo a descricao do guiche')
@@ -66,9 +61,8 @@ def step_impl(context):
     
     br.find_element_by_name('descricao').send_keys('Teste')
     assert br.find_element_by_name('descricao').get_attribute('value') == 'Teste'
-    
     time.sleep(1)
-    br.get_screenshot_as_file('./screenshot3.png')
+
     
 
 @given(u'Eu informo um codigoCEF do guiche ainda nao cadastrado')
@@ -77,18 +71,16 @@ def step_impl(context):
     #Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     
-    guiche_boolean = Guiche.objects.filter(codigoCEF=999999).exists()
+    guiche_boolean = Guiche.objects.filter(codigoCEF=191900).exists()
     assert guiche_boolean == False
     
-    br.find_element_by_name('codigoCEF').send_keys(999999)
-    assert br.find_element_by_name('codigoCEF').get_attribute('value') == '999999'
-
+    br.find_element_by_name('codigoCEF').send_keys(191900)
+    assert br.find_element_by_name('codigoCEF').get_attribute('value') == '191900'
     time.sleep(1)
-    br.get_screenshot_as_file('./screenshot4.png')
 
 
 def salvaGuiche():
-    guiche = GuicheFactory(numero=9, descricao='Normal Teste', codigoCEF=999999)
+    guiche = GuicheFactory(numero=0, descricao='Teste', codigoCEF=191900)
     guiche.save()
     assert len(Guiche.objects.all()) == 4
 
@@ -100,31 +92,84 @@ def step_impl(context):
 
     br.find_element_by_name('submit').click()
     time.sleep(1)
-    br.get_screenshot_as_file('./screenshot5.png')
     salvaGuiche()
 
 
 @then(u'Eu sou redirecionado para a pagina com a lista de guiches cadastrados')
 def step_impl(context):
     br = context.browser
-
     # Checks success status
     assert br.current_url.endswith('/lista_guiche/')
 
 
 @then(u'O guiche deve estar devidamente cadastrado')
 def step_impl(context):
-    br = context.browser
-
-    guiche_boolean = Guiche.objects.filter(numero=9).exists()
+    guiche_boolean = Guiche.objects.filter(numero=0).exists()
     assert guiche_boolean == True
     
 
+
+
+
 ### TESTE: Guiche editado com sucesso
+@given(u'Estou na pagina de lista de guiches')
+def step_impl(context):
+    br = context.browser
+    br.get('https://geelo.herokuapp.com/lista_guiche')
+    
+    #Checks for Cross-Site Request Forgery protection input
+    assert br.current_url.endswith('/lista_guiche/')
+    time.sleep(1)
+
+
+@given(u'Seleciono o botao editar de um guiche')
+def step_impl(context):
+    br = context.browser
+    br.find_element_by_name('submit-vizualizar').click()
+    time.sleep(1)
+
+
+@given(u'Sou redirecionado para a pagina com os dados do guiche ja preenchidos')
+def step_impl(context):
+    br = context.browser
+    # Checks success status
+    assert br.current_url.endswith('/editar')
+
+
+@given(u'Preencho o campo descricao com um novo nome')
+def step_impl(context):
+    br = context.browser
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    
+    br.find_element_by_name('descricao').clear()
+    br.find_element_by_name('descricao').send_keys('Teste - Editado')
+    assert br.find_element_by_name('descricao').get_attribute('value') == 'Teste - Editado'
+    time.sleep(1)
+
+
+@when(u'Clico no botao editar o guiche')
+def step_impl(context):
+    br = context.browser
+    #Checks for Cross-Site Request Forgery protection input
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+
+    br.find_element_by_name('submit').click()
+    time.sleep(1)
 
 
 
 ### TESTE: Guiche excluido com sucesso 
-
-
-
+@when(u'Clico no botao excluir o guiche')
+def step_impl(context):
+    br = context.browser
+    br.find_element_by_name('submit-excluir').click()
+    time.sleep(1)
+    Guiche.objects.filter(numero=0).delete()
+    
+@then(u'O guiche deixara de existir')
+def step_impl(context):
+    br = context.browser
+    br.refresh()
+    time.sleep(1)
+    guiche_boolean = Guiche.objects.filter(numero=0).exists()
+    assert guiche_boolean == False

@@ -13,3 +13,4 @@ pytz==2017.2
 selenium==2.53.6
 six==1.10.0
 whitenoise==3.3.0
+djangorestframework==3.7.3

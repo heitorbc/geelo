@@ -23,10 +23,13 @@ def criarNovoUsuario():
 #Scenario: Campos Vazios
 @given('Eu sou um usuario logado')
 def step_impl(context):
+    br = context.browser
+    br.get('https://geelo.herokuapp.com/logout/')
+    time.sleep(1)
+    
     #Cria um usuário de teste
     criarNovoUsuario()
     
-    br = context.browser
     br.get('https://geelo.herokuapp.com/')
     
     # Checks for Cross-Site Request Forgery protection input
@@ -123,7 +126,6 @@ def step_impl(context):
 @when(u'Eu clico no botao vender')
 def step_impl(context):
     br = context.browser
-    #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     br.find_element_by_name('submit-vender').click()
     time.sleep(2)
     #br.get_screenshot_as_file('./screenshot2.png')
@@ -132,7 +134,6 @@ def step_impl(context):
 @then(u'Eu confirmo a venda')
 def step_impl(context):
     br = context.browser
-    #assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     br.find_element_by_name('vender_bolao').click()
     time.sleep(2)
     #br.get_screenshot_as_file('./screenshot3.png')

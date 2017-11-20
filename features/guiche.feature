@@ -12,13 +12,17 @@ Feature: Gerencimento de Guiche
         Then Eu sou redirecionado para a pagina com a lista de guiches cadastrados
         And O guiche deve estar devidamente cadastrado
     
+    Scenario: Guiche editado com sucesso
+        Given Estou na pagina de lista de guiches
+        And Seleciono o botao editar de um guiche
+        And Sou redirecionado para a pagina com os dados do guiche ja preenchidos
+        And Preencho o campo descricao com um novo nome
+        When Clico no botao editar o guiche
+        Then Eu sou redirecionado para a pagina com a lista de guiches cadastrados
     
-#    Scenario: Guiche editado com sucesso
-#        Given Estou na pagina de lista de guiches
-#        And Seleciono o botao editar de um guiche
-#        And Sou redirecionado para a pagina com os dados do guiche ja preenchidos
-#        And Preencho o campo descricao com um novo nome
-#        When Clico no botao editar o guiche
-#        Then Sou redirecionado para a pagina com a lista de guiches cadastrados
+    Scenario: Guiche excluido com sucesso
+        Given Estou na pagina de lista de guiches
+        When Clico no botao excluir o guiche
+        Then O guiche deixara de existir
 
     

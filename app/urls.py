@@ -19,11 +19,67 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from app.views import *
 from django.contrib.auth import views as auth_views
+from rest_framework import routers, serializers, viewsets
+
+
+
+# Serializers define the API representation.
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username', 'email')
+
+class TipoBolaoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TipoBolao
+        fields = ('url','codigo', 'modalidade','cotas','valorBolao', 'valorTaxa')
+
+class ModalidadeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Modalidade
+        fields = ('url','descricao')
+
+class BoloesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Bolao
+        fields = ('url', 'dataSorteio', 'cotasDisponiveis', 'identificador','tipoBolao')
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class ModalidadesViewSet(viewsets.ModelViewSet):
+    queryset = Modalidade.objects.all()
+    serializer_class = ModalidadeSerializer
+
+class TipoBoloesViewSet(viewsets.ModelViewSet):
+    queryset = TipoBolao.objects.all()
+    serializer_class = TipoBolaoSerializer
+
+class BoloesViewSet(viewsets.ModelViewSet):
+    boloes = Bolao.objects.all()
+    queryset = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
+    serializer_class = BoloesSerializer
+
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'modalidades', ModalidadesViewSet)
+router.register(r'tipo_bolao', TipoBoloesViewSet)
+router.register(r'boloes', BoloesViewSet)
+
+
+
 
 urlpatterns = [
     url(r'^$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/', include(router.urls)),
     url(r'^home/$', relatorio_home, name='home'),
+    
     url(r'^$', relatorio_home, name='home'),
+    
     url(r'^realiza_venda_bolao/$', realiza_venda_bolao, name='realiza_venda_bolao'),
     url(r'^realiza_venda_produto/$', realiza_venda_produto, name='realiza_venda_produto'),
     url(r'^bolao/(?P<pk>\d+)/vender', venda_bolao, name='venda_bolao'),
