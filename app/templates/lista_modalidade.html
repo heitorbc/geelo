@@ -41,7 +41,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                        {% for modalidade in modalidades|dictsort:"descricao" %}
+                        {% for modalidade in modalidades|dictsortreversed:"id" %}
                         <tr>
                             <td id="id">{{modalidade.id}}</td>
                             <td id="descricao">{{modalidade.descricao}}</td>

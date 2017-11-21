@@ -43,7 +43,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                         {% for guiche in guiches|dictsort:"numero" %}
+                         {% for guiche in guiches|dictsortreversed:"numero" %}
                         <tr>
                             
                             <td id="numero">{{guiche.numero}}</td>

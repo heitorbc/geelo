@@ -43,7 +43,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                         {% for bolao in boloes|dictsort:"dataCriacao" %}
+                         {% for bolao in boloes|dictsortreversed:"dataCriacao" %}
                         <tr>
                             
                             <td id="id">{{bolao.dataCriacao}}</td>

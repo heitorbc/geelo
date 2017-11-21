@@ -44,7 +44,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                         {% for produto in produtos|dictsort:"id" %}
+                         {% for produto in produtos|dictsortreversed:"id" %}
                         <tr>
                             <td id="id">{{produto.id}}</td>
                             <td id="descricao">{{produto.descricao}}</td>
