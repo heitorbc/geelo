@@ -41,7 +41,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                         {% for tipoFuncionario in tipofuncionarios|dictsort:"descricao" %}
+                         {% for tipoFuncionario in tipofuncionarios|dictsortreversed:"id" %}
                         <tr>
                             <td id="id">{{tipoFuncionario.id}}</td>
                             <td id="descrição">{{tipoFuncionario.descricao}}</td>
