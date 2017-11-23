@@ -44,11 +44,11 @@ def step_impl(context):
     #Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     
-    guiche_boolean = Guiche.objects.filter(numero=0).exists()
+    guiche_boolean = Guiche.objects.filter(numero=99).exists()
     assert guiche_boolean == False
     
-    br.find_element_by_name('numero').send_keys(0)
-    assert br.find_element_by_name('numero').get_attribute('value') == '0'
+    br.find_element_by_name('numero').send_keys(99)
+    assert br.find_element_by_name('numero').get_attribute('value') == '99'
     time.sleep(1)
 
 
@@ -71,16 +71,16 @@ def step_impl(context):
     #Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
     
-    guiche_boolean = Guiche.objects.filter(codigoCEF=191900).exists()
+    guiche_boolean = Guiche.objects.filter(codigoCEF=191999).exists()
     assert guiche_boolean == False
     
-    br.find_element_by_name('codigoCEF').send_keys(191900)
-    assert br.find_element_by_name('codigoCEF').get_attribute('value') == '191900'
+    br.find_element_by_name('codigoCEF').send_keys(191999)
+    assert br.find_element_by_name('codigoCEF').get_attribute('value') == '191999'
     time.sleep(1)
 
 
 def salvaGuiche():
-    guiche = GuicheFactory(numero=0, descricao='Teste', codigoCEF=191900)
+    guiche = GuicheFactory(numero=99, descricao='Teste', codigoCEF=191999)
     guiche.save()
     assert len(Guiche.objects.all()) == 4
 
@@ -104,8 +104,9 @@ def step_impl(context):
 
 @then(u'O guiche deve estar devidamente cadastrado')
 def step_impl(context):
-    guiche_boolean = Guiche.objects.filter(numero=0).exists()
+    guiche_boolean = Guiche.objects.filter(numero=99).exists()
     assert guiche_boolean == True
+    #br.get_screenshot_as_file('./screenshot-cadastro.png')
     
 
 
@@ -155,6 +156,7 @@ def step_impl(context):
 
     br.find_element_by_name('submit').click()
     time.sleep(1)
+    #br.get_screenshot_as_file('./screenshot-editar.png')
 
 
 
@@ -164,12 +166,13 @@ def step_impl(context):
     br = context.browser
     br.find_element_by_name('submit-excluir').click()
     time.sleep(1)
-    Guiche.objects.filter(numero=0).delete()
+    Guiche.objects.filter(numero=99).delete()
     
 @then(u'O guiche deixara de existir')
 def step_impl(context):
     br = context.browser
     br.refresh()
     time.sleep(1)
-    guiche_boolean = Guiche.objects.filter(numero=0).exists()
+    guiche_boolean = Guiche.objects.filter(numero=99).exists()
     assert guiche_boolean == False
+    #br.get_screenshot_as_file('./screenshot-excluir.png')

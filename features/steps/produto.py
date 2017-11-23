@@ -36,27 +36,21 @@ def step_impl(context):
     
     br.find_element_by_name('descricao').send_keys('Teste')
     assert br.find_element_by_name('descricao').get_attribute('value') == 'Teste'
-    br.get_screenshot_as_file('./screenshot2.png')
     
     br.find_element_by_name('valorProduto').send_keys(9)
     assert br.find_element_by_name('valorProduto').get_attribute('value') == '9'
-    br.get_screenshot_as_file('./screenshot3.png')
     
     br.find_element_by_name('valorComissao').send_keys(1)
     assert br.find_element_by_name('valorComissao').get_attribute('value') == '1'
-    br.get_screenshot_as_file('./screenshot4.png')
     
     br.find_element_by_name('modalidade').send_keys('Telesena')
     assert br.find_element_by_name('modalidade').get_attribute('value') == '4'
-    br.get_screenshot_as_file('./screenshot5.png')
     
     br.find_element_by_name('quantidadeDisponivel').send_keys(9)
     assert br.find_element_by_name('quantidadeDisponivel').get_attribute('value') == '9'
-    br.get_screenshot_as_file('./screenshot6.png')
 
     br.find_element_by_name('dataSorteio').send_keys('2019-09-09 19:00')
     assert br.find_element_by_name('dataSorteio').get_attribute('value') == '2019-09-09 19:00'
-    br.get_screenshot_as_file('./screenshot7.png')
 
 
 def salvaProduto():
@@ -71,7 +65,6 @@ def step_impl(context):
     br = context.browser
     #Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
-
     br.find_element_by_name('submit').click()
     time.sleep(1)
     salvaProduto()
@@ -88,12 +81,13 @@ def step_impl(context):
 def step_impl(context):
     protudo_boolean = Produto.objects.filter(descricao='Teste').exists()
     assert protudo_boolean == True
+    #br.get_screenshot_as_file('./screenshot-cadastro.png')
 
 
 
     
     
-### TESTE: Guiche editado com sucesso
+### TESTE: Produto editado com sucesso
 @given(u'Estou na pagina de lista de produtos')
 def step_impl(context):
     br = context.browser
@@ -102,21 +96,13 @@ def step_impl(context):
     #Checks for Cross-Site Request Forgery protection input
     assert br.current_url.endswith('/lista_produto/')
     time.sleep(1)
-    br.get_screenshot_as_file('./screenshot1.png')
 
 
 @given(u'Seleciono o botao editar de um produto')
 def step_impl(context):
     br = context.browser
-    indice = br.find_element_by_xpath("//td[@id='id']")
-
-    print("ID: " + str(indice))
-    
-    #br.get('https://geelo.herokuapp.com/produto/%d/editar/' % produto[0].id)
-    
     br.find_element_by_name('submit-vizualizar').click()
     time.sleep(1)
-    br.get_screenshot_as_file('./screenshot2.png')
 
 
 @given(u'Sou redirecionado para a pagina com os dados do produto ja preenchidos')
@@ -128,24 +114,49 @@ def step_impl(context):
 
 @given(u'Preencho o campo valor da comissao com um novo valor')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given Preencho o campo valor da comissao com um novo valor')
-
+    br = context.browser
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    
+    br.find_element_by_name('descricao').clear()
+    br.find_element_by_name('descricao').send_keys('Teste - Editado')
+    assert br.find_element_by_name('descricao').get_attribute('value') == 'Teste - Editado'
+    time.sleep(1)
+    
 
 @when(u'Clico no botao editar o produto')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When Clico no botao editar o produto')
+    br = context.browser
+    #Checks for Cross-Site Request Forgery protection input
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+    
+    br.find_element_by_name('submit').click()
+    time.sleep(1)
+    #br.get_screenshot_as_file('./screenshot-editar.png')
 
 
 
 
 
-### TESTE: Guiche excluido com sucesso 
+### TESTE: Produto excluido com sucesso 
 @when(u'Clico no botao excluir o produto')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When Clico no botao excluir o produto')
+    br = context.browser
+    br.find_element_by_name('submit-excluir').click()
+    time.sleep(1)
+    Produto.objects.filter(descricao='Teste - Editado').delete()
+
 
 @then(u'O produto deixara de existir')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Then O produto deixara de existir')
+    br = context.browser
+    br.refresh()
+    time.sleep(1)
+    produto_boolean = Produto.objects.filter(descricao='Teste - Editado').exists()
+    assert produto_boolean == False
+    #br.get_screenshot_as_file('./screenshot-excluir.png')
+
+
+
+
 
 
