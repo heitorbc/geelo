@@ -12,7 +12,14 @@
 #      And Eu possuo tipo de bolao cadastrado no sistema
 #      And Eu possuo bolao cadastrado no sistema
       
-#      And Eu estou na pagina de vendas
-#      When Eu clico no botao vender
-#      Then Eu confirmo a venda
-#      And A venda e efetuada e eu volto para a tela de vendas
+#      And Eu estou na pagina de vendas de bolao
+#      When Eu clico no botao vender bolao
+#      Then Eu confirmo a venda do bolao
+#      And A venda do bolao e efetuada e eu volto para a tela de vendas
+
+#----------------------------------------------------------------
+#    Scenario: Venda de bolao cancelada com sucesso
+#        Given Eu estou na pagina de vendas de bolao
+#        When Eu clico no botao vender bolao
+#        Then Eu cancelo a venda do bolao
+#        And A venda do bolao não e efetuada e eu volto para a tela de vendas
