@@ -58,7 +58,6 @@ def step_impl(context):
     tipo_funcionario = TipoFuncionario.objects.get(descricao='Vendedor')
     
     funcionario = FuncionarioFactory(user=user_root, tipoFuncionario=tipo_funcionario, nome='Thales', sobrenome='C. Vescovi', cpf='147.231.177-22', rg='3.206.960', ctps='999-9' , dataContratacao='2017-08-12 12:00:00' , dataDemissao='2017-08-12 12:00:00' , salario=150.00)
-    
     funcionario.save()
     assert len(Funcionario.objects.all()) == 1
 
@@ -119,7 +118,6 @@ def step_impl(context):
     
     #Checks for Cross-Site Request Forgery protection input
     assert br.current_url.endswith('/realiza_venda_bolao/')
-    #time.sleep(3)
     #br.get_screenshot_as_file('./screenshot1.png')
     
 
@@ -146,5 +144,4 @@ def step_impl(context):
     
     #Checks for Cross-Site Request Forgery protection input
     assert br.current_url.endswith('/realiza_venda_bolao/')
-    #time.sleep(3)
     #br.get_screenshot_as_file('./screenshot4.png')

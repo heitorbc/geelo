@@ -1,13 +1,13 @@
 Fontconfig warning: ignoring C.UTF-8: not a valid language tag
-[INFO  - 2017-11-20T21:42:10.956Z] GhostDriver - Main - running on port 53953
-[INFO  - 2017-11-20T21:42:11.588Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2017-11-20T21:42:11.588Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.customHeaders:  - {}
-[INFO  - 2017-11-20T21:42:11.588Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2017-11-20T21:42:11.588Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: aa6e7f10-ce3b-11e7-a1a7-13b826319987
-[ERROR - 2017-11-20T21:42:14.373Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[INFO  - 2017-11-23T02:23:16.026Z] GhostDriver - Main - running on port 38917
+[INFO  - 2017-11-23T02:23:16.136Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-11-23T02:23:16.136Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.customHeaders:  - {}
+[INFO  - 2017-11-23T02:23:16.136Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-11-23T02:23:16.136Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 434fcd50-cff5-11e7-8edb-73c450f7afb6
+[ERROR - 2017-11-23T02:23:19.236Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:14.373Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - stack:
+[ERROR - 2017-11-23T02:23:19.236Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
@@ -16,10 +16,10 @@ Fontconfig warning: ignoring C.UTF-8: not a valid language tag
   J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:14.717Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[ERROR - 2017-11-23T02:23:19.610Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:14.717Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - stack:
+[ERROR - 2017-11-23T02:23:19.610Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
@@ -28,10 +28,10 @@ Fontconfig warning: ignoring C.UTF-8: not a valid language tag
   J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:18.056Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[ERROR - 2017-11-23T02:23:21.821Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:18.056Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - stack:
+[ERROR - 2017-11-23T02:23:21.821Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
@@ -40,10 +40,10 @@ Fontconfig warning: ignoring C.UTF-8: not a valid language tag
   J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:21.520Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[ERROR - 2017-11-23T02:23:23.176Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:21.521Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - stack:
+[ERROR - 2017-11-23T02:23:23.176Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
@@ -52,10 +52,10 @@ Fontconfig warning: ignoring C.UTF-8: not a valid language tag
   J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:21.832Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[ERROR - 2017-11-23T02:23:24.586Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:21.832Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - stack:
+[ERROR - 2017-11-23T02:23:24.586Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
@@ -64,10 +64,10 @@ Fontconfig warning: ignoring C.UTF-8: not a valid language tag
   J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:25.888Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[ERROR - 2017-11-23T02:23:27.805Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:25.888Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - stack:
+[ERROR - 2017-11-23T02:23:27.805Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
@@ -76,10 +76,418 @@ Fontconfig warning: ignoring C.UTF-8: not a valid language tag
   J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:26.197Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+[ERROR - 2017-11-23T02:23:31.345Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
 
   phantomjs://platform/console++.js:263 in error
-[ERROR - 2017-11-20T21:42:26.197Z] Session [aa6e7f10-ce3b-11e7-a1a7-13b826319987] - page.onError - stack:
+[ERROR - 2017-11-23T02:23:31.345Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:31.693Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:31.693Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:33.116Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:33.116Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:35.973Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:35.973Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:39.344Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:39.344Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:39.671Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:39.671Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:41.093Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:41.093Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:42.434Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:42.434Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:46.023Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:46.023Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:46.357Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:46.357Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:51.114Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:51.114Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:54.777Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:54.777Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:55.091Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:55.091Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:56.401Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:56.401Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:59.128Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:23:59.128Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:02.896Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:02.896Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:03.219Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:03.219Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:04.923Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:04.923Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:06.417Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:06.417Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:10.844Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:10.844Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:15.445Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:15.445Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:15.767Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:15.767Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:17.646Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:17.646Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:21.447Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:21.448Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:21.791Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:21.791Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:23.131Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:23.132Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:25.804Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:25.804Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:29.486Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:29.486Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:29.903Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:29.903Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:31.527Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:31.527Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:33.005Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:33.005Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:37.272Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:37.272Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:37.742Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:37.743Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:40.370Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:40.370Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
+  validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
+  (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
+  i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  fireWith (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  ready (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+  J (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:42.828Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - msg: TypeError: undefined is not an object (evaluating '$('#demo-form2').parsley().isValid')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-11-23T02:24:42.828Z] Session [434fcd50-cff5-11e7-8edb-73c450f7afb6] - page.onError - stack:
   validateFront (https://geelo.herokuapp.com/static/build/js/custom.js:999)
   (anonymous function) (https://geelo.herokuapp.com/static/build/js/custom.js:975)
   i (https://geelo.herokuapp.com/static/vendors/jquery/dist/jquery.min.js:2)

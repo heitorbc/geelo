@@ -1,6 +1,5 @@
 #Feature: Efetuar Venda
   
-  
 #    Background: Em todos os testes o usuário deve estar logado.
 #      Given Eu sou um usuario logado
   

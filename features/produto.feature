@@ -20,5 +20,5 @@
     
 #    Scenario: Produto excluido com sucesso
 #        Given Estou na pagina de lista de produtos
- #       When Clico no botao excluir o produto
+#        When Clico no botao excluir o produto
 #        Then O produto deixara de existir
