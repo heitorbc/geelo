@@ -52,7 +52,7 @@ class FormProduto(forms.ModelForm):
         
         
 class FormBolao(forms.ModelForm):
-    dataSorteio = forms.DateTimeField(widget=forms.SplitDateTimeWidget())
+    #dataSorteio = forms.DateTimeField(widget=forms.SplitDateTimeWidget())
 
     class Meta:
         model = Bolao
