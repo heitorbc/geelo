@@ -50,7 +50,7 @@
                      </td>
                     
                     <td id="bolao_venda">
-                      <button type="button" class="btn btn-info btn-s" data-toggle="modal"  data-target=".bs-example-modal-sm-{{produto.id}}">Vender</button>
+                      <button type="button" class="btn btn-info btn-s" name="vender-produto" data-toggle="modal"  data-target=".bs-example-modal-sm-{{produto.id}}">Vender</button>
 
             <div class="modal fade bs-example-modal-sm-{{produto.id}}"  tabindex="-1" role="dialog" aria-hidden="true">
               <div class="modal-dialog modal-sm">
@@ -69,9 +69,9 @@
                     <h2>R$ {{produto.valor_total}}</h2>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                    <button type="button" class="btn btn-default" name="cancelar-venda" data-dismiss="modal" >Cancelar</button>
                     <button type="button" class="btn btn-primary">
-                      <a class="botao-venda"  name="vender_produto" href="{% url 'venda_produto' pk=produto.pk %}" style="color: white">Confirmar</a>
+                      <a class="botao-venda"  name="confirmar-venda" href="{% url 'venda_produto' pk=produto.pk %}" style="color: white">Confirmar</a>
                     </button>
                   </div>
 

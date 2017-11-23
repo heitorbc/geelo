@@ -109,7 +109,7 @@ def carregaboloes():
     assert len(TipoBolao.objects.all()) > 0
 
 
-@given(u'Eu estou na pagina de vendas')
+@given(u'Eu estou na pagina de vendas de bolao')
 def step_impl(context):
     carregaboloes()
     
@@ -121,18 +121,18 @@ def step_impl(context):
     #br.get_screenshot_as_file('./screenshot1.png')
     
 
-@when(u'Eu clico no botao vender')
+@when(u'Eu clico no botao vender bolao')
 def step_impl(context):
     br = context.browser
-    br.find_element_by_name('submit-vender').click()
+    br.find_element_by_name('vender-bolao').click()
     time.sleep(2)
     #br.get_screenshot_as_file('./screenshot2.png')
 
 
-@then(u'Eu confirmo a venda')
+@then(u'Eu confirmo a venda do bolao')
 def step_impl(context):
     br = context.browser
-    br.find_element_by_name('vender_bolao').click()
+    br.find_element_by_name('confirmar-venda').click()
     time.sleep(2)
     #br.get_screenshot_as_file('./screenshot3.png')
     
@@ -145,3 +145,8 @@ def step_impl(context):
     #Checks for Cross-Site Request Forgery protection input
     assert br.current_url.endswith('/realiza_venda_bolao/')
     #br.get_screenshot_as_file('./screenshot4.png')
+    
+    
+    
+### TEST: Cancelar Venda de Bolão
+
