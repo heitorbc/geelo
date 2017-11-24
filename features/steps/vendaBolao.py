@@ -103,15 +103,15 @@ def step_impl(context):
 
 
 ### TEST: Efetuar Venda de Bolão
-def carregaboloes():
+def carregaBoloes():
     boloes = Bolao.objects.all()
     boloes_validos = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
-    assert len(TipoBolao.objects.all()) > 0
+    assert len(Bolao.objects.all()) > 0
 
 
 @given(u'Eu estou na pagina de vendas de bolao')
 def step_impl(context):
-    carregaboloes()
+    carregaBoloes()
     
     br = context.browser
     br.get('https://geelo.herokuapp.com/realiza_venda_bolao')
@@ -125,7 +125,7 @@ def step_impl(context):
 def step_impl(context):
     br = context.browser
     br.find_element_by_name('vender-bolao').click()
-    time.sleep(2)
+    time.sleep(1)
     #br.get_screenshot_as_file('./screenshot2.png')
 
 
@@ -137,7 +137,7 @@ def step_impl(context):
     #br.get_screenshot_as_file('./screenshot3.png')
     
 
-@then(u'A venda e efetuada e eu volto para a tela de vendas')
+@then(u'A venda do bolao e efetuada e eu volto para a tela de vendas')
 def step_impl(context):
     br = context.browser
     br.get('https://geelo.herokuapp.com/realiza_venda_bolao')
@@ -150,3 +150,23 @@ def step_impl(context):
     
 ### TEST: Cancelar Venda de Bolão
 
+@given(u'Eu estou na pagina de vendas do bolao')
+def step_impl(context):
+    br = context.browser
+    br.get('https://geelo.herokuapp.com/realiza_venda_bolao')
+    #Checks for Cross-Site Request Forgery protection input
+    assert br.current_url.endswith('/realiza_venda_bolao/')
+    
+
+@then(u'Eu cancelo a venda do bolao')
+def step_impl(context):
+    br = context.browser
+    br.find_element_by_name('cancelar_venda').click()
+    time.sleep(1)
+    
+
+@then(u'A venda do bolao nao e efetuada e eu volto para a tela de vendas')
+def step_impl(context):
+    br = context.browser
+    #Checks for Cross-Site Request Forgery protection input
+    assert br.current_url.endswith('/realiza_venda_bolao/')
