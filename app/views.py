@@ -11,7 +11,8 @@ from django.shortcuts import render
 from django.views.generic.edit import FormView
 from django.utils import timezone
 from datetime import datetime
-
+from rest_framework import viewsets,permissions
+from serializers import *
 
 
 @csrf_protect
@@ -492,3 +493,37 @@ def deletar_tipo_funcionario(request, pk):
     tipoFuncionario = get_object_or_404(TipoFuncionario, pk=pk)
     tipoFuncionario.delete()
     return redirect('/lista_tipo_funcionario')
+
+
+
+#API VIEWS
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class ModalidadesViewSet(viewsets.ModelViewSet):
+    
+    queryset = Modalidade.objects.all()
+    serializer_class = ModalidadeSerializer
+
+class TipoBoloesViewSet(viewsets.ModelViewSet):
+    queryset = TipoBolao.objects.all()
+    serializer_class = TipoBolaoSerializer
+
+class BoloesViewSet(viewsets.ModelViewSet):
+    boloes = Bolao.objects.all()
+    queryset = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
+    serializer_class = BolaoSerializer
+
+class VendasViewSet(viewsets.ModelViewSet):
+    queryset = Venda.objects.all()
+    serializer_class = VendaSerializer
+
+class GuichesViewSet(viewsets.ModelViewSet):
+    queryset = Guiche.objects.all()
+    serializer_class = GuicheSerializer
+    
+class ProdutosViewSet(viewsets.ModelViewSet):
+    queryset = Produto.objects.all()
+    serializer_class = ProdutoSerializer
