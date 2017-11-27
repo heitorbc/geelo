@@ -19,7 +19,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from app.views import *
 from django.contrib.auth import views as auth_views
-from serializers import *
+from .serializers import *
 from rest_framework import routers, serializers, viewsets
 
 
