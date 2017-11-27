@@ -19,48 +19,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from app.views import *
 from django.contrib.auth import views as auth_views
+from .serializers import *
 from rest_framework import routers, serializers, viewsets
-
-
-
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email')
-
-class TipoBolaoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TipoBolao
-        fields = ('url','codigo', 'modalidade','cotas','valorBolao', 'valorTaxa')
-
-class ModalidadeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Modalidade
-        fields = ('url','descricao')
-
-class BoloesSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Bolao
-        fields = ('url', 'dataSorteio', 'cotasDisponiveis', 'identificador','tipoBolao')
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-class ModalidadesViewSet(viewsets.ModelViewSet):
-    queryset = Modalidade.objects.all()
-    serializer_class = ModalidadeSerializer
-
-class TipoBoloesViewSet(viewsets.ModelViewSet):
-    queryset = TipoBolao.objects.all()
-    serializer_class = TipoBolaoSerializer
-
-class BoloesViewSet(viewsets.ModelViewSet):
-    boloes = Bolao.objects.all()
-    queryset = boloes.filter(cotasDisponiveis__gte=1,dataSorteio__gte=datetime.now())
-    serializer_class = BoloesSerializer
 
 
 router = routers.DefaultRouter()
@@ -68,6 +28,9 @@ router.register(r'users', UserViewSet)
 router.register(r'modalidades', ModalidadesViewSet)
 router.register(r'tipo_bolao', TipoBoloesViewSet)
 router.register(r'boloes', BoloesViewSet)
+router.register(r'vendas', VendasViewSet)
+router.register(r'guiche', GuichesViewSet)
+router.register(r'produto', ProdutosViewSet)
 
 
 

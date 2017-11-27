@@ -25,6 +25,7 @@
 #        Then Eu sou redirecionado para a pagina com a lista de funcionarios cadastrados
     
 #    Scenario: Funcionario excluido com sucesso
-#       Given Estou na pagina de lista de funcionarios
+#        Given Estou na pagina de lista de funcionarios
 #        When Clico no botao excluir o funcionario
-#       Then O funcionario deixara de existir
+#        Then O funcionario deixara de existir
+#        And Eu sou redirecionado para a pagina com a lista de funcionarios cadastrados

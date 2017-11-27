@@ -22,3 +22,4 @@
 #        Given Estou na pagina de lista de boloes
 #        When Clico no botao excluir o bolao
 #        Then O bolao deixara de existir
+#		 And Eu sou redirecionado para a pagina com a lista de boloes cadastrados

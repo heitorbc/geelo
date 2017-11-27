@@ -22,3 +22,4 @@
 #        Given Estou na pagina de lista de produtos
 #        When Clico no botao excluir o produto
 #        Then O produto deixara de existir
+#        And Eu sou redirecionado para a pagina com a lista de produtos cadastrados

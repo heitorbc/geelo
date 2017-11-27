@@ -24,3 +24,4 @@
 #        Given Estou na pagina de lista de guiches
 #        When Clico no botao excluir o guiche
 #        Then O guiche deixara de existir
+#        And Eu sou redirecionado para a pagina com a lista de guiches cadastrados
