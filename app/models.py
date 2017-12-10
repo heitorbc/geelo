@@ -34,7 +34,7 @@ class Funcionario(models.Model):
     
     #Notações
     class Meta:
-        verbose_name = ('Tipo Funcionário')
+        verbose_name = ('Funcionário')
         verbose_name_plural = ('Funcionários')
     
     #ToString

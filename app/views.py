@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic.edit import FormView
 from django.utils import timezone
-from datetime import datetime
+from datetime import datetime,timedelta
 from rest_framework import viewsets,permissions
 from .serializers import *
 
@@ -58,16 +58,24 @@ def venda_produto(request, pk):
 @csrf_protect
 @login_required
 def lista_venda(request):
-    '''
-    ##LIMITAR ACESSO VENDAS POR USUARIO LOGADO SE NAO FOR ADMIN
-    if user.funcionario.is_admin:
-        vendas = Venda.objects.all()
-    else:
-        vendas = Venda.objects.filter(vendedor=user)
-    '''
-    
+    yesterday = date.today() - timedelta(1)
+    ##LIMITA ACESSO VENDAS POR USUARIO LOGADO
     vendas = Venda.objects.all()
+    vendas = Venda.objects.filter(dataHoraVenda__gte=yesterday)
     return render(request, 'lista_venda.html', {'vendas': vendas})
+
+@csrf_protect
+@login_required
+def lista_venda_por_dias(request, quantidade_dias):
+    periodo = date.today() - timedelta(int(quantidade_dias))
+    ##LIMITA ACESSO VENDAS POR USUARIO LOGADO
+    vendas = Venda.objects.all()
+    if request.user.funcionario.is_admin():
+        vendas = Venda.objects.filter(dataHoraVenda__gte=periodo)
+    else:
+        vendas = Venda.objects.filter(vendedor=request.user,dataHoraVenda__gte=periodo)
+    return render(request, 'lista_venda.html', {'vendas': vendas})
+
 
 
 ##### Views de Cadastros #####
