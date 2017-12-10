@@ -1,0 +1,118 @@
+{% extends "base_site.html" %}
+
+{% block title %} Vendas {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Minhas Vendas</h3>
+        </div>
+
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            
+            <div class="x_content">
+                
+               <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
+                  <a  name="vender" href="{% url 'realiza_venda_bolao' %}"><i class="fa fa-plus-circle"></i> Nova Venda</a>
+                </button>
+
+
+<p class="text-muted font-13 m-b-30">
+                <p>Veja abaixo suas vendas realizadas Hoje</p>
+              </p>
+              <table id="datatable-buttons" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Bolão</th>
+                    <th>Produto</th>
+                    <th>Guichê</th>
+                    <th>Data Hora\Venda</th>
+                  </tr>
+                </thead>
+
+
+                <tbody>
+                  {% for venda in vendas|dictsortreversed:"dataHoraVenda" %}
+                  <tr>
+                    <td id="id">
+                      {{venda.id}}
+                    </td>
+                    <td id="bolao">
+                    {% if venda.bolao %}
+                      {{venda.bolao}}
+                    {% else %}
+                      ---
+                    {% endif %}
+                      
+                    </td>
+                    <td id="produto">
+                      {% if venda.produto %}
+                        {{venda.produto}}
+                      {% else %}
+                        ---
+                      {% endif %}
+                        
+                    </td>
+                    <td id="guiche">
+                      {{venda.guiche}}
+                    </td>
+                    <td id="dataHoraVenda">
+                      {{venda.dataHoraVenda}}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+       
+        
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+
+
+
+{% block javascripts %}
+  {{ block.super }}
+  <!-- Datatables -->
+  <script src="/static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="/static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="/static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="/static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+  <script src="/static/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="/static/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="/static/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="/static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+  <script src="/static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+  <script src="/static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="/static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <script src="/static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+  <script src="/static/vendors/jszip/dist/jszip.min.js"></script>
+  <script src="/static/vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="/static/vendors/pdfmake/build/vfs_fonts.js"></script>
+{% endblock javascripts %}

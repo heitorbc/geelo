@@ -27,7 +27,12 @@
                 {% csrf_token %}
                 <br/>
                 <div class="form">
-                    {{form_funcionario.as_p}}
+                  <table>
+                    <tbody>
+                    {{form_funcionario.as_table}}
+                    </tbody>
+                    </table>
+                      
                 </div>
 
                 <br/><br/>

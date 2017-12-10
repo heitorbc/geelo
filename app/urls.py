@@ -47,6 +47,7 @@ urlpatterns = [
     url(r'^realiza_venda_produto/$', realiza_venda_produto, name='realiza_venda_produto'),
     url(r'^bolao/(?P<pk>\d+)/vender', venda_bolao, name='venda_bolao'),
     url(r'^produto/(?P<pk>\d+)/vender', venda_produto, name='venda_produto'),
+    url(r'^lista_venda_por_dias/(?P<quantidade_dias>\d+)', lista_venda_por_dias, name='lista_venda_por_dias'),
     url(r'^lista_venda/$', lista_venda, name='lista_venda'),
     
     url(r'^cadastro_funcionario/$', cadastro_funcionario, name='cadastro_funcionario'),

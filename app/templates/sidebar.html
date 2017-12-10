@@ -40,17 +40,19 @@
         {% if user.funcionario.is_admin %}
         <li><a><i class="fa fa-table"></i> Relatórios Gerenciais<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="#">Semanal <span class="label label-success pull-right">Em Breve</span> </a></li>
-            <li><a href="#">Mensal <span class="label label-success pull-right">Em Breve</span> </a></li>
+            <li><a name="submit_minhas_vendas_diario" href="{% url 'lista_venda_por_dias' quantidade_dias=1 %}"s>Vendas Diário</a></li>
+            <li><a name="submit_minhas_vendas_semanal" href="{% url 'lista_venda_por_dias' quantidade_dias=7 %}"s>Vendas Semanal</a></li>
+            <li><a name="submit_minhas_vendas_mensal" href="{% url 'lista_venda_por_dias' quantidade_dias=30 %}"s>Vendas Mensal</a></li>
             <li><a href="#">Por Vendedor <span class="label label-success pull-right">Em Breve</span> </a></li>
           </ul>
         </li>
         {% else %}
         <li><a><i class="fa fa-table"></i>Meus Relatórios <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="#">Diário <span class="label label-success pull-right">Em Breve</span> </a></li>
-            <li><a href="#">Semanal <span class="label label-success pull-right">Em Breve</span> </a></li>
-            <li><a href="#">Mensal <span class="label label-success pull-right">Em Breve</span> </a></li>
+          <li><a name="submit_minhas_vendas_diario" href="{% url 'lista_venda_por_dias' quantidade_dias=1 %}"s>Minhas Vendas Diário</a></li>
+            <li><a name="submit_minhas_vendas_semanal" href="{% url 'lista_venda_por_dias' quantidade_dias=7 %}"s>Minhas Vendas Semanal</a></li>
+            <li><a name="submit_minhas_vendas_mensal" href="{% url 'lista_venda_por_dias' quantidade_dias=30 %}"s>Minhas Vendas Mensal</a></li>
+            
           </ul>
         </li>
         
