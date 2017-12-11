@@ -41,7 +41,7 @@ def realiza_venda_produto(request):
 def venda_bolao(request, pk):
     bolao = get_object_or_404(Bolao, pk=pk)
     bolao.vende_cota()
-    Venda.objects.create(vendedor=request.user, bolao=bolao, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(numero='1'))
+    Venda.objects.create(vendedor=request.user, bolao=bolao, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(id='1'))
     bolao.save()
     return redirect('/realiza_venda_bolao')
 
@@ -50,7 +50,7 @@ def venda_bolao(request, pk):
 def venda_produto(request, pk):
     produto = get_object_or_404(Produto, pk=pk)
     produto.vende()
-    Venda.objects.create(vendedor=request.user, produto=produto, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(numero='1'))
+    Venda.objects.create(vendedor=request.user, produto=produto, dataHoraVenda=datetime.now(), guiche=Guiche.objects.get(id='1'))
     produto.save()
     return redirect('/realiza_venda_produto')
 
@@ -59,7 +59,6 @@ def venda_produto(request, pk):
 @login_required
 def lista_venda(request):
     yesterday = date.today() - timedelta(1)
-    ##LIMITA ACESSO VENDAS POR USUARIO LOGADO
     vendas = Venda.objects.all()
     vendas = Venda.objects.filter(dataHoraVenda__gte=yesterday)
     return render(request, 'lista_venda.html', {'vendas': vendas})
@@ -71,17 +70,39 @@ def lista_venda_por_dias(request, quantidade_dias):
     ##LIMITA ACESSO VENDAS POR USUARIO LOGADO
     vendas = Venda.objects.all()
     if request.user.funcionario.is_admin():
-        vendas = Venda.objects.filter(dataHoraVenda__gte=periodo)
+        vendas = Venda.objects.filter(dataHoraVenda__gte=periodo,is_homologada=True)
     else:
-        vendas = Venda.objects.filter(vendedor=request.user,dataHoraVenda__gte=periodo)
+        vendas = Venda.objects.filter(vendedor=request.user,dataHoraVenda__gte=periodo,is_homologada=True)
     return render(request, 'lista_venda.html', {'vendas': vendas})
 
 
 @csrf_protect
 @login_required
+def lista_homologa_venda(request):
+    yesterday = date.today() - timedelta(1)
+    vendas = Venda.objects.all()
+    vendas = Venda.objects.filter(dataHoraVenda__gte=yesterday,is_homologada=False)
+    return render(request, 'lista_homologa_venda.html', {'vendas': vendas})
+    
+    
+@csrf_protect
+@login_required
+def homologar_vendas(request):
+    yesterday = date.today() - timedelta(1)
+    vendas = Venda.objects.all()
+    vendas = Venda.objects.filter(dataHoraVenda__gte=yesterday,is_homologada=False)
+    for venda in vendas:
+        venda_aux = get_object_or_404(Venda, pk=venda.pk)
+        venda_aux.is_homologada=True
+        venda_aux.save()
+    return redirect('/lista_homologa_venda')
+    
+    
+
+@csrf_protect
+@login_required
 def lista_venda_por_vendedor(request, pk):
-    user = get_object_or_404(User, pk=pk)    
-    ##LIMITA ACESSO VENDAS POR USUARIO LOGADO
+    user = get_object_or_404(User, pk=pk)
     vendas = Venda.objects.all()
     vendas = Venda.objects.filter(vendedor=pk)
     return render(request, 'lista_venda.html', {'vendas': vendas})
@@ -517,6 +538,13 @@ def deletar_tipo_funcionario(request, pk):
     tipoFuncionario = get_object_or_404(TipoFuncionario, pk=pk)
     tipoFuncionario.delete()
     return redirect('/lista_tipo_funcionario')
+
+@csrf_protect
+@login_required
+def deletar_venda(request, pk):
+    venda = get_object_or_404(Venda, pk=pk)
+    venda.delete()
+    return redirect('/lista_homologa_venda')
 
 
 

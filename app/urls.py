@@ -49,6 +49,8 @@ urlpatterns = [
     url(r'^produto/(?P<pk>\d+)/vender', venda_produto, name='venda_produto'),
     url(r'^lista_venda_por_dias/(?P<quantidade_dias>\d+)', lista_venda_por_dias, name='lista_venda_por_dias'),
     url(r'^lista_venda/$', lista_venda, name='lista_venda'),
+    url(r'^lista_homologa_venda/$', lista_homologa_venda, name='lista_homologa_venda'),
+    url(r'^homologar_vendas/$', homologar_vendas, name='homologar_vendas'),
     url(r'^lista_vendedores/$', lista_vendedores, name='lista_vendedores'),
     url(r'^lista_venda/vendedor/(?P<pk>\d+)$', lista_venda_por_vendedor, name='lista_venda_por_vendedor'),
     
@@ -87,5 +89,6 @@ urlpatterns = [
     url(r'^produto/(?P<pk>\d+)/deletar', deletar_produto, name='deletar_produto'),
     url(r'^bolao/(?P<pk>\d+)/deletar', deletar_bolao, name='deletar_bolao'),
     url(r'^guiche/(?P<pk>\d+)/deletar', deletar_guiche, name='deletar_guiche'),
+    url(r'^venda/(?P<pk>\d+)/deletar', deletar_venda, name='deletar_venda'),
     url(r'^tipo_funcionario/(?P<pk>\d+)/deletar', deletar_tipo_funcionario, name='deletar_tipo_funcionario'),
 ]

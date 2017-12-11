@@ -13,7 +13,7 @@
     </div>
     <div class="profile_info">
       <span>Olá,</span>
-      <h2>{{user.first_name}}</h2>
+      <h2>{{request.user.first_name}}</h2>
     </div>
   </div>
   <!-- /menu profile quick info -->
@@ -35,9 +35,12 @@
             <li><a name="submit_venda_bolao" href="{% url 'realiza_venda_bolao' %}">Vender Bolão</a></li>
             <li><a name="submit_venda_produto" href="{% url 'realiza_venda_produto' %}">Vender Produto</a></li>
             <li><a name="submit_lista_venda" href="{% url 'lista_venda' %}">Listar Vendas</a></li>
+            {% if request.user.funcionario.is_admin %}
+            <li><a name="submit_lista_homologa_venda" href="{% url 'lista_homologa_venda' %}">Homologar Vendas</a></li>
+            {% endif %}
           </ul>
         </li>
-        {% if user.funcionario.is_admin %}
+        {% if request.user.funcionario.is_admin %}
         <li><a><i class="fa fa-table"></i> Relatórios Gerenciais<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a name="submit_minhas_vendas_diario" href="{% url 'lista_venda_por_dias' quantidade_dias=1 %}"s>Vendas Diário</a></li>

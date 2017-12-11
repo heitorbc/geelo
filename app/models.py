@@ -175,7 +175,8 @@ class Venda(models.Model):
     produto = models.ForeignKey(Produto, blank=True,null=True,on_delete=models.CASCADE, related_name='produto_venda')
     dataHoraVenda = models.DateTimeField(default=datetime.now(),blank=True,verbose_name='Data/Hora da Venda')
     guiche = models.ForeignKey(Guiche, on_delete=models.CASCADE, related_name='guiche_venda')
-
+    is_homologada = models.BooleanField(default=False,verbose_name=('Venda Homologada'))
+    
     #Notações
     class Meta:
         verbose_name = ('Venda')
