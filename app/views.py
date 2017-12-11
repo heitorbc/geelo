@@ -77,6 +77,22 @@ def lista_venda_por_dias(request, quantidade_dias):
     return render(request, 'lista_venda.html', {'vendas': vendas})
 
 
+@csrf_protect
+@login_required
+def lista_venda_por_vendedor(request, pk):
+    user = get_object_or_404(User, pk=pk)    
+    ##LIMITA ACESSO VENDAS POR USUARIO LOGADO
+    vendas = Venda.objects.all()
+    vendas = Venda.objects.filter(vendedor=pk)
+    return render(request, 'lista_venda.html', {'vendas': vendas})
+
+@csrf_protect
+@login_required
+def lista_vendedores(request):
+    funcionarios = Funcionario.objects.all()
+    funcionarios = Funcionario.objects.filter(tipoFuncionario=TipoFuncionario.objects.get(descricao='Vendedor'))
+    return render(request, 'lista_vendedores.html', {'funcionarios': funcionarios})
+
 
 ##### Views de Cadastros #####
 
