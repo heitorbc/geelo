@@ -1,0 +1,93 @@
+{% extends "base_site.html" %}
+
+{% block title %} Tipo Bolão {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Homologar Vendas </h3>
+        </div>
+
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            
+            <div class="x_content">
+                
+               <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="Novo" data-original-title="" title="">
+                  <a  name="homologar_vendas" href="{% url 'homologar_vendas' %}"><i class="fa fa-plus-circle"></i> Homologar TODAS</a>
+                </button>
+
+
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Vendedor</th>
+                    <th>Bolão</th>
+                    <th>Produto</th>
+                    <th>Data/Hora da Venda</th>
+                    <th>Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+                         {% for venda in vendas|dictsortreversed:"dataHoraVenda" %}
+                        <tr>
+                            <td id="id">{{venda.id}}</td>
+                            <td id="vendedor">{{venda.vendedor.username}}</td>
+                            <td id="bolao">
+                              {% if venda.bolao %}
+                                {{venda.bolao}}
+                              {% else %}
+                                  ---
+                              {% endif %}
+                            </td>
+                            <td id="produto">
+                              {% if venda.produto %}
+                                {{venda.produto}}
+                              {% else %}
+                                ---
+                              {% endif %}
+                            </td>
+                            <td id="dataHoraVenda">{{venda.dataHoraVenda}}</td>
+                            <td>    
+                                <div class="btn-group">
+                                    <a href="{% url 'deletar_venda' pk=venda.pk %}" style="color:#7387A8;" data-placement="right" data-toggle="tooltip" data-original-title="Excluir Venda" class="btn btn-sm btn-default" role="button"><i class="fa fa-trash"></i></a>
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+
+       
+        
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+
+
+
