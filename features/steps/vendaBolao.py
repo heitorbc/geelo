@@ -16,7 +16,7 @@ import time
 def criarNovoUsuario():
     # Creates a dummy user for our tests (user is not authenticated at this point)
     u = UserFactory(username='admin', email='admin@example.com')
-    u.set_password('admin123456')
+    u.set_password('admin12345')
     # Don't omit to call save() to insert object in database
     u.save()
 
@@ -37,7 +37,7 @@ def step_impl(context):
     
     # Fill login form and submit it (valid version)
     br.find_element_by_name('username').send_keys('admin')
-    br.find_element_by_name('password').send_keys('admin123456')
+    br.find_element_by_name('password').send_keys('admin12345')
     br.find_element_by_name('action-login').click()
 
 
